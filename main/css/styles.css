@@ -1,13 +1,3 @@
-/*@Font-face {
-    font-family: PixelOperatorBold;
-    src: url('font/PixelOperator-Bold.ttf');
-}
-
-@Font-face {
-    font-family: PixelOperator;
-    src: url('font/PixelOperator.ttf');
-}*/
-
 header {
     opacity: 0.94;
     padding-bottom: 20px;
@@ -92,4 +82,5 @@ h4 {
     color: #171819;
     background-color: #171819;
     border-bottom: 1px solid #c15050;
+    
 }
