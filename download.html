@@ -6,37 +6,60 @@
 
     <!-- Bootstrap CSS -->
 
-    <link href="res/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="main/res/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Fonts and css-->
-    <link rel="stylesheet" href="res/fonts/pixel_operator/PixelOperator.ttf" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>FSO Table Option Submission Form</title>
+    <link rel="stylesheet" href="main/res/fonts/pixel_operator/PixelOperator.ttf" />
+    <link rel="stylesheet" href="main/css/styles.css" />
+    <title>Knossos.NET Downloads</title>
   </head>
 
-  <body class="body_" style="background-image: url('res/background.png')">
+  <body onload="initOsChoice()" class="body_">
     <header>
       <div class="container header-container">
         <div class="row">
+          <div class="col-2">
+            <img
+              alt="Knossos.NET"
+              width="128"
+              height="128"
+              src="main/res/knossos-icon.ico"
+            />
+          </div>
           <div class="col-5-med">
-            <h2>FSO Table Option Submission Form</h2>
+            <h2>Knossos.NET Downloads</h2>
           </div>
         </div>
       </div>
     </header>
 
-    <div class="container body-container rounded">
-      <br />
+    <div class="container">
       <div class="row">
-        <div class="col-3 col-med-1">
-          <h3>Instructions:</h3>
-        </div>
-        <div class="col-9 col-med-8">
-          <h4>Use this form to submit table option documentation for the options used in Freespace Open.</h4>
+        <div class="body-container rounded">
+          <ul class="nav nav-tabs">
+            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Windows</a></li>
+            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">macOS</a></li>
+            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Linux</a></li>
+          </ul>
         </div>
       </div>
-      <br />
-      <br />      
+      <div id="winLinks" class="row">
+        I"M A WINDOWS!
+      </div>
+      <div id="macLinks" class="row">
+        I"M A MAC!
+      </div>
+      <div id="linLinks" class="row">
+        i'm linux
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-9 col-med-8">
+        </div>
+      </div>
       <div class="row">
         <div class="col-10">
           <br />
@@ -74,6 +97,7 @@
     <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.-->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="res/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="main/res/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="main/js/download-scritps.js"></script>
   </body>
 </html>
