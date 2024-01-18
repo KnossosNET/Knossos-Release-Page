@@ -5,6 +5,10 @@ header {
     margin-bottom: 40px;
 }
 
+body {
+    background-color: #171819;
+}
+
 .container {
 /*    background-color: #7d0101; */
     opacity: 0.91;
@@ -24,7 +28,7 @@ header {
 }
 
 .body-container {
-    
+    background-color: #171819;
     margin-bottom: 20px;
     margin-left: 5%;
     margin-right: 5%;
@@ -42,7 +46,9 @@ header {
 }
 
 a {
-    color: #c15050;
+    color: #4e1772;
+    font-weight: bold;
+    
 }
 
 h1, h2, h3, h4, h5 {
@@ -78,9 +84,36 @@ h4 {
     padding-left: 10px;
 }
 
-.nav-tabs {
+ul {
+    background-color: #171819;
+}
+
+.navbar {
     color: #171819;
     background-color: #171819;
     border-bottom: 1px solid #c15050;
     
+}
+
+.nav-tabs-link-active-bg {
+    background-color: #171819;
+}
+
+.nav-tabs {
+    border-color: #000;
+    border-bottom: 2px solid #000;
+    background-color: #181818;
+}
+
+.nav-tabs:hover {
+    border-color: #000;
+    border-bottom: 2px solid #000;
+    background-color: #171819;
+
+}
+
+.nav-tabs:active{
+    border-color: #000;
+    border-bottom: 1px solid #000;
+    background-color: #161616;
 }

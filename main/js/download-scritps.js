@@ -1,8 +1,6 @@
 function changeActivation(enable, id){
   var nodes = document.getElementById(id).getElementsByTagName('*');
 
-  console.log(nodes);
-
   if (enable === true){
     document.getElementById(id).style.display = 'inline';
   } else if (enable === false){
@@ -11,12 +9,16 @@ function changeActivation(enable, id){
 }
 
 
-function activateWin(){
+function activateWindows(){
   console.log("Windows Chosen");
 
   changeActivation(false, "macLinks");
   changeActivation(false, "linLinks");
   changeActivation(true, "winLinks");
+
+  document.getElementById("winTab").classList.add("active");
+  document.getElementById("macTab").classList.remove("active");
+  document.getElementById("linTab").classList.remove("active");
 }
 
 function activateMac(){
@@ -26,6 +28,9 @@ function activateMac(){
   changeActivation(false, "winLinks");
   changeActivation(true, "macLinks");
 
+  document.getElementById("winTab").classList.remove("active");
+  document.getElementById("macTab").classList.add("active");
+  document.getElementById("linTab").classList.remove("active");
 }
 
 function activateLinux(){
@@ -34,6 +39,14 @@ function activateLinux(){
   changeActivation(false, "winLinks");
   changeActivation(false, "macLinks");
   changeActivation(true, "linLinks");
+
+  document.getElementById("winTab").classList.remove("active");
+  document.getElementById("macTab").classList.remove("active");
+  document.getElementById("linTab").classList.add("active");
+
+  const style = getComputedStyle(document.getElementById("windowTab"));
+  console.log("Why yes, I am a taco.")
+  console.log(style);
 }
 
 // borrowed from Vlad Turak
@@ -50,9 +63,9 @@ function initOsChoice() {
   } else if (iosPlatforms.indexOf(platform) !== -1) {
     activateMac();
   } else if (windowsPlatforms.indexOf(platform) !== -1) {
-    activateWin();
+    activateWindows();
   } else if (/Android/.test(userAgent)) {
-    activateWin();
+    activateWindows();
   } else if (/Linux/.test(platform)) {
     activateLinux();
   }
