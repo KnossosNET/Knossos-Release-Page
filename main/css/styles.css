@@ -2,6 +2,9 @@ header {
     padding-bottom: 20px;
     margin-right: 0px;
     margin-bottom: 0px;
+    background-image: linear-gradient(180deg, #4e1772 0,rgba(52,10,52,.3)),repeating-linear-gradient(180deg,#181818,#181818 1px,#000 0,#000 2px);
+    background-size: 5000px 80px;
+    background-repeat: no-repeat;
 }
 
 body {
@@ -17,23 +20,26 @@ body {
 }
 
 .header-container {
-    background-image: linear-gradient(180deg, #4e1772 0,rgba(52,10,52,.3)),repeating-linear-gradient(180deg,#181818,#181818 1px,#000 0,#000 2px);
+    margin-top: 10px;
     margin-left: 0px;
     margin-right: 0px;
     padding-top: 10px;
-    padding-left: 50px;
+    padding-left: 40px;
     padding-bottom: 0px;
     padding-right: 0px;
 }
 
+
 .body-container {
     background-color: #171819;
     margin-bottom: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-right: 100px;
-    padding-bottom: 20px;
-    padding-right: 40px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-right: 0px;
+    padding-bottom: 10px;
+    padding-right: 0px;
+    border:#000;
+    border-width: 3px;
 }  
 
 .body_ {
@@ -47,16 +53,12 @@ body {
 a {
     color: #4e1772;
     font-weight: bold;
-    
 }
 
 a:hover {
     color: #5e1792;
 }
 
-a: {
-    color: #ffffff;
-}
 
 h1, h2, h3, h4, h5 {
     color: #fefefe;
@@ -67,11 +69,7 @@ h3 {
 }
 
 h4 {
-    padding-right: 20px;
-}
-
-.body-img {
-    margin-top: 15px;
+    padding-right: 0px;
 }
 
 .footer_ {
@@ -81,35 +79,34 @@ h4 {
     padding: 20px;
 }
 
-.row-content {
+/*.row-content {
     border-bottom: 1px ridge;
     min-height: 400px;
-}
+}*/
 
 .li-body {
     margin-bottom: 5px;
     padding-left: 10px;
 }
 
-ul {
-    background-color: #171819;
-}
-
-.navbar {
-    color: #171819;
-    background-color: #171819;
-}
-
+/* Adjusts the bottom border of the whole nav-tabs section */
 .nav-tabs {
-    border-bottom: 2px solid #000;
-    background-color: #171819;
-}
-
-
-.nav-tabs .nav-item .nav-link {
-    background-color: #161616;
+    border-bottom: 0px;
+    border-left-width: 3px;
+    border-right-width: 3px;
     border-color: #000;
 }
+
+/* Actually fixes the tab background color*/
+.nav-tabs .nav-item .nav-link {
+    background-color: #131313;
+    border-width: 2px;
+    border-color: #000;
+    border-bottom-width: 3px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
 
 /* Tab colors on mouse down on nav bar */
 .nav-tabs:active .nav-item:active .nav-link:active {
@@ -118,6 +115,5 @@ ul {
     font-size: 12;
 }
 
-.active > a {
-    color:#ffffff;
-}
+
+
