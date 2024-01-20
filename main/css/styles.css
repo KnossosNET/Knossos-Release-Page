@@ -32,11 +32,11 @@ body {
 
 .body-container {
     background-color: #171819;
-    margin-bottom: 20px;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-bottom: 0px;
+    margin-left: 20px;
     margin-right: 0px;
-    padding-bottom: 10px;
+    margin-right: 0px;
+    padding-bottom: 0px;
     padding-right: 0px;
     border:#000;
     border-width: 3px;
@@ -61,7 +61,7 @@ a:hover {
 
 
 h1, h2, h3, h4, h5 {
-    color: #fefefe;
+    color: #febefe;
 }
 
 h3 {
@@ -115,5 +115,23 @@ h4 {
     font-size: 12;
 }
 
+.DLlinks {
+    background-color: #131313;
+    
+} 
 
+.card {
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.card-header {
+    background-color: #151515;
+}
+
+.card-body {
+    background-color: #131313;
+
+}
 
