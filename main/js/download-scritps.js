@@ -16,9 +16,6 @@ function activateWindows(){
   changeActivation(false, "linLinks");
   changeActivation(true, "winLinks");
 
-  document.getElementById("winTab").classList.add("active");
-  document.getElementById("macTab").classList.remove("active");
-  document.getElementById("linTab").classList.remove("active");
 }
 
 function activateMac(){
@@ -28,9 +25,6 @@ function activateMac(){
   changeActivation(false, "winLinks");
   changeActivation(true, "macLinks");
 
-  document.getElementById("winTab").classList.remove("active");
-  document.getElementById("macTab").classList.add("active");
-  document.getElementById("linTab").classList.remove("active");
 }
 
 function activateLinux(){
@@ -40,10 +34,6 @@ function activateLinux(){
   changeActivation(false, "macLinks");
   changeActivation(true, "linLinks");
 
-  document.getElementById("winTab").classList.remove("active");
-  document.getElementById("macTab").classList.remove("active");
-  document.getElementById("linTab").classList.add("active");
-
   const style = getComputedStyle(document.getElementById("windowTab"));
   console.log("Why yes, I am a taco.")
   console.log(style);
@@ -52,6 +42,7 @@ function activateLinux(){
 // borrowed from Vlad Turak
 // https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
 function initOsChoice() {
+  
   const userAgent = window.navigator.userAgent,
       platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
       macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],

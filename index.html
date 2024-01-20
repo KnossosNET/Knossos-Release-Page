@@ -40,20 +40,45 @@
       <div class="row">
         <div class="body-container rounded">
           <ul class="nav nav-tabs">
-            <li id="windowTab" class="nav-item"> <a id="winTab" class="nav-link active" aria-current="page" onclick="activateWindows()">Windows</a></li>
-            <li class="nav-item"> <a id="macTab" class="nav-link" aria-current="page" onclick="activateMac()">macOS</a></li>
-            <li class="nav-item"> <a id="linTab" class="nav-link" aria-current="page" onclick="activateLinux()">Linux</a></li>
+            <li id="windowTab" class="nav-item">
+              <a id="winTab" class="nav-link" aria-current="page" onclick="activateWindows()">
+                
+                Windows
+                <img 
+                  alt="Windows Downloads"
+                  src="main/res/iconmonstr-win.png"
+                  width="16"
+                  height="16"
+                />
+              </a></li>
+            <li class="nav-item"> 
+              <a id="macTab" class="nav-link" aria-current="page" onclick="activateMac()">
+                macOS
+                <img 
+                  alt="macOS Downloads"
+                  src="main/res/iconmonstr-mac.png"
+                  width="16"
+                  height="16"
+                />
+              </a></li>
+            <li class="nav-item"> 
+              <a id="linTab" class="nav-link" aria-current="page" onclick="activateLinux()">
+                Linux
+                <img 
+                  alt="Linux Downloads"
+                  src="main/res/iconmonstr-linux.png"
+                  width="16"
+                  height="16"
+                />
+                </a></li>
           </ul>
         </div>
       </div>
 
-      <div class="row">
-        <div id="winLinks" class="card DLlinks">
-          <div class="card-header">
-            Packages
-          </div>
+      <div class="row" style="width: 25rem;">
+        <div id="winLinks" class="card DLlinks" style="width: 25rem;">
           <div class="card-body">
-            WINDOWS!
+            <h5>WINDOWS!</h5>
           </div>
         </div>
         <div id="macLinks" class="card DLlinks" style="width: 25rem;">
