@@ -13,7 +13,6 @@ body {
 
 .container {
 /*    background-color: #7d0101; */
-    opacity: 0.91;
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 40px;
@@ -38,8 +37,6 @@ body {
     margin-right: 0px;
     padding-bottom: 0px;
     padding-right: 0px;
-    border:#000;
-    border-width: 3px;
 }  
 
 .body_ {
@@ -53,6 +50,7 @@ body {
 a {
     color: #7322b7;
     font-weight: normal;
+    text-shadow: 0 0 2px #000;
 
 }
 
@@ -67,6 +65,11 @@ a:hover {
 h2 {
     text-shadow: 0 0 7px #000;
     font-weight: normal;
+}
+
+h3, h4, h5 {
+    text-shadow: 0 0 2px #000;
+
 }
 
 h1, h2, h3, h4, h5 {
@@ -100,7 +103,9 @@ h1, h2, h3, h4, h5 {
 /* Actually fixes the tab background color*/
 .nav-tabs .nav-item .nav-link {
     background-color: #202020;
-    border-width: 2px;
+    border-width: 0px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
     border-color: #000;
 
 }
@@ -114,19 +119,27 @@ h1, h2, h3, h4, h5 {
 .DLlinks {
     background-color: #202020;
     display: none;
-} 
-
-.card {
-    border-width: 2px;
-    border-color: #000;
     margin: 0px;
     padding: 0px;
+} 
+
+/*.card {
 
 
-}
+}*/
 
-.card-body {
+.link-body {
     background-color: #202020;
-
+    margin: 0px;
+    padding: 15px;
+    padding-bottom: 50px;
+    margin-left: 15px;
+    border-width: 2px;
+    border-color: #000;
 }
 
+.link-container {
+    padding: 0px;
+    margin: 0px;
+
+}
