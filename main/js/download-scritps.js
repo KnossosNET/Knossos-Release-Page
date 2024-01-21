@@ -11,8 +11,10 @@ function toggleSelectedTab(enable, id2){
 
   if (enable === true){
     element.style.fontWeight = 'bold';
+    element.style.backgroundColor = "#121212";
   } else if (enable === false){
     element.style.fontWeight = 'normal';
+    element.style.backgroundColor = "#080808";
   }
 }
 

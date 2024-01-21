@@ -8,14 +8,14 @@ header {
 }
 
 body {
-    background-color: #171819;
+    background-color: #000;
 }
 
 .container {
-/*    background-color: #7d0101; */
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 40px;
+    padding-right: 10px;
 }
 
 .header-container {
@@ -30,7 +30,7 @@ body {
 
 
 .body-container {
-    background-color: #171819;
+    background-color: #121212;
     margin-bottom: 0px;
     margin-left: 20px;
     margin-right: 0px;
@@ -42,7 +42,7 @@ body {
 .body_ {
 /*    background-color: linear-gradient(90deg,#929BA0, #778188); */
     color: #fefefe;
-    background-color: #171819;
+    background-color: #000;
     background-attachment: fixed;
     margin-right: 0px;
 }
@@ -77,11 +77,11 @@ h1, h2, h3, h4, h5 {
 }
 
 h4 {
-    font-size:medium;
+    font-size:large;
 }
 
 h5 {
-    font-size: small;
+    font-size: medium;
 }
 
 .minor-text {
@@ -108,7 +108,11 @@ h5 {
 }*/
 
 li::marker{
-    color:#000;
+    color:#7211C2;
+}
+
+li {
+    list-style-image: "main/res/iconmonstr-download.png";
 }
 
 .li-body {
@@ -137,23 +141,18 @@ li::marker{
 /* Tab colors on nav bar mouse down */
 .nav-tabs:active .nav-item:active .nav-link:active {
     color: #533a66;
-    background-color:#242424;
+    background-color:#121212;
 }
 
 .DLlinks {
-    background-color: #202020;
+    background-color: #121212;
     display: none;
     margin: 0px;
     padding: 0px;
 } 
 
-/*.card {
-
-
-}*/
-
 .link-body {
-    background-color: #202020;
+    background-color: #121212;
     margin: 0px;
     padding: 15px;
     padding-bottom: 50px;
