@@ -1,38 +1,56 @@
-function changeActivation(enable, id){
-  var nodes = document.getElementById(id).getElementsByTagName('*');
+function changeActivation(enable, id, id2){
+  
+  toggleSelectedTab(enable, id2);
+  toggleContents(enable, id);
+}
+
+function toggleSelectedTab(enable, id2){
+  const element = document.getElementById(id2);
+
+  console.log(id2);
 
   if (enable === true){
-    document.getElementById(id).style.display = 'inline';
+    element.style.fontWeight = 'bold';
   } else if (enable === false){
-    document.getElementById(id).style.display = 'none';
+    element.style.fontWeight = 'normal';
   }
 }
 
+function toggleContents(enable, id)
+{
+  const element = document.getElementById(id);
+
+  if (enable === true){
+    element.style.display = 'inline';
+  } else if (enable === false){
+    element.style.display = 'none';
+  }
+}
 
 function activateWindows(){
   console.log("Windows Chosen");
 
-  changeActivation(false, "macLinks");
-  changeActivation(false, "linLinks");
-  changeActivation(true, "winLinks");
+  changeActivation(false, "macLinks", "macTab");
+  changeActivation(false, "linLinks", "linTab");
+  changeActivation(true, "winLinks", "winTab");
 
 }
 
 function activateMac(){
   console.log("macOS chosen");
 
-  changeActivation(false, "linLinks");
-  changeActivation(false, "winLinks");
-  changeActivation(true, "macLinks");
+  changeActivation(false, "linLinks", "linTab");
+  changeActivation(false, "winLinks", "winTab");
+  changeActivation(true, "macLinks", "macTab");
 
 }
 
 function activateLinux(){
   console.log("Linux chosen");
 
-  changeActivation(false, "winLinks");
-  changeActivation(false, "macLinks");
-  changeActivation(true, "linLinks");
+  changeActivation(false, "winLinks", "winTab");
+  changeActivation(false, "macLinks", "macTab");
+  changeActivation(true, "linLinks", "linTab");
 
   const style = getComputedStyle(document.getElementById("windowTab"));
   console.log("Why yes, I am a taco.")
