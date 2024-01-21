@@ -76,16 +76,33 @@ h1, h2, h3, h4, h5 {
     color: #8d1beb;
 }
 
+h4 {
+    font-size:medium;
+}
+
+h5 {
+    font-size: small;
+}
+
+.minor-text {
+    color: #8d1beb;
+    font-size: smaller;
+}
+
 .footer_ {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-right: 0px;
-    padding: 20px;
+    padding: 10px;
 }
 
 /*.row-content {
     border-bottom: 1px ridge;
     min-height: 400px;
 }*/
+
+li::marker{
+    color:#000;
+}
 
 .li-body {
     margin-bottom: 5px;
