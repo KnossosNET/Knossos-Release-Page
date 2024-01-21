@@ -2,7 +2,7 @@ header {
     padding-bottom: 20px;
     margin-right: 0px;
     margin-bottom: 0px;
-    background-image: linear-gradient(180deg, #4e1772 0,rgba(52,10,52,.3)),repeating-linear-gradient(180deg,#181818,#181818 1px,#000 0,#000 2px);
+    background-image: linear-gradient(180deg, #912bd4 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#484848,#565656 1px,#000 0,#000 2px);
     background-size: 5000px 80px;
     background-repeat: no-repeat;
 }
@@ -48,18 +48,18 @@ body {
 }
 
 a {
-    color: #7322b7;
+    color: #8d1beb;
     font-weight: normal;
     text-shadow: 0 0 2px #000;
 
 }
 
 a:local-link {
-    color: #7322b7;
+    color: #8d1beb;
 }
 
 a:hover {
-    color: #5e1792;
+    color: #7c22bd;
 }
 
 h2 {
@@ -97,7 +97,7 @@ h5 {
 
 .footer-area{
     padding-bottom: 50px;
-    background-image: linear-gradient(0deg, #4e1772 0,rgba(52,10,52,.3)),repeating-linear-gradient(180deg,#181818,#181818 1px,#000 0,#000 2px);
+    background-image: linear-gradient(0deg, #912bd4 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#484848,#565656 1px,#000 0,#000 2px);
     background-size: 5000px 80px;
     background-repeat: no-repeat;
 }
@@ -106,10 +106,6 @@ h5 {
     border-bottom: 1px ridge;
     min-height: 400px;
 }*/
-
-li::marker{
-    color:#7211C2;
-}
 
 li {
     list-style-image: "main/res/iconmonstr-download.png";
@@ -130,7 +126,7 @@ li {
 
 /* Actually fixes the tab background color*/
 .nav-tabs .nav-item .nav-link {
-    background-color: #202020;
+    background-color: #404040;
     border-width: 0px;
     border-right-width: 3px;
     border-bottom-width: 3px;
@@ -140,19 +136,19 @@ li {
 
 /* Tab colors on nav bar mouse down */
 .nav-tabs:active .nav-item:active .nav-link:active {
-    color: #533a66;
-    background-color:#121212;
+    color: #7c5699;
+    background-color:#242424;
 }
 
 .DLlinks {
-    background-color: #121212;
+    background-color: #242424;
     display: none;
     margin: 0px;
     padding: 0px;
 } 
 
 .link-body {
-    background-color: #121212;
+    background-color: #242424;
     margin: 0px;
     padding: 15px;
     padding-bottom: 50px;
