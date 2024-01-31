@@ -151,9 +151,6 @@ function activateTheButton(os, arch){
       newContents +=  "Windows 64 Bit Intel Installer</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-x64.exe";
 
-      // Make sure windows users know why their ARM build was not detected.
-      noteContents += "<br><div class='minor-text'>Note: 64-Bit Windows Builds will work on ARM via emulation"
-
     // Bogus Windows arch
     }  else {
       disableTheButton();
@@ -214,7 +211,6 @@ function activateTheButton(os, arch){
   anchorElement.innerHTML = newContents;
 
   // Add some final text, explaining the use of other tabs
-  noteContents += "<br><br>For other downloads, please select the respective OS tab"
   document.getElementById("button-extra-text").innerHTML = noteContents;
 
   // Go ahead and let the user see it
