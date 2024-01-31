@@ -140,7 +140,7 @@ function activateTheButton(os, arch){
   // Windows
   if (os === 0) {
     if (arch === 0){
-      newContents += "Windows ARM Installer</b></h4>";
+      newContents += "Windows ARM64 Installer</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-arm64.exe";
 
     } else if (arch === 32) {
@@ -181,7 +181,7 @@ function activateTheButton(os, arch){
   // Linux
   } else if (os === 2) {
     if (arch === 0) {
-      newContents +=  "Linux ARM AppImage</b></h4>";
+      newContents +=  "Linux aarch64 AppImage</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-aarch64.AppImage";
 
     } else if (arch === 32) {
@@ -189,7 +189,7 @@ function activateTheButton(os, arch){
         disableTheButton();
 
     } else if (arch === 64) {
-      newContents += "Linux 64 Bit AppImage</b></h4>";
+      newContents += "Linux x86_64 AppImage</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-x86_64.AppImage";
 
     // Bogus Linux Arch
