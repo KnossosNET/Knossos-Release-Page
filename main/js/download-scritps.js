@@ -45,13 +45,29 @@ function toggleContents(enable, id)
   }
 }
 
+function disableTheButton(){
+  toggleContents(false, "downLinks");
+  toggleContents(false, "downloadTab");
+}
+
+
+function activateDownload(){
+// console.log("Convenience Build Chosen!");
+
+  changeActivation(false, "macLinks", "macTab");
+  changeActivation(false, "linLinks", "linTab");
+  changeActivation(false, "winLinks", "winTab");
+  changeActivation(true, "downLinks", "downTab")
+
+}
+
 function activateWindows(){
 //  console.log("Windows Chosen");
 
   changeActivation(false, "macLinks", "macTab");
   changeActivation(false, "linLinks", "linTab");
   changeActivation(true, "winLinks", "winTab");
-
+  changeActivation(false, "downLinks", "downTab")
 }
 
 function activateMac(){
@@ -60,7 +76,7 @@ function activateMac(){
   changeActivation(false, "linLinks", "linTab");
   changeActivation(false, "winLinks", "winTab");
   changeActivation(true, "macLinks", "macTab");
-
+  changeActivation(false, "downLinks", "downTab")
 }
 
 function activateLinux(){
@@ -69,13 +85,12 @@ function activateLinux(){
   changeActivation(false, "winLinks", "winTab");
   changeActivation(false, "macLinks", "macTab");
   changeActivation(true, "linLinks", "linTab");
-
+  changeActivation(false, "downLinks", "downTab")
 }
 
 // borrowed from Vlad Turak
 // https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
 function initOsChoice(archResult) {
-  
   const userAgent = window.navigator.userAgent,
       platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
       macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
@@ -83,18 +98,20 @@ function initOsChoice(archResult) {
       iosPlatforms = ['iPhone', 'iPad', 'iPod'];
 
   if (macosPlatforms.indexOf(platform) !== -1) {
-    activateTheButton(1, archResult)
     activateMac();
+    activateTheButton(1, archResult);
   } else if (iosPlatforms.indexOf(platform) !== -1) {
     activateMac();
+    disableTheButton(); // No ios builds, so user must pick if they want one.
   } else if (windowsPlatforms.indexOf(platform) !== -1) {
-    activateTheButton(0, archResult)
     activateWindows();
+    activateTheButton(0, archResult);
   } else if (/Android/.test(userAgent)) {
     activateWindows();
+    disableTheButton(); // No android builds, so user must pick if they want one.
   } else if (/Linux/.test(platform)) {
-    activateTheButton(2, archResult)
     activateLinux();
+    activateTheButton(2, archResult);
   }
 }
 
@@ -104,6 +121,7 @@ function activateTheButton(os, arch){
 
   // sanity!
   if (os < 0 || os > 2){
+    disableTheButton();
     return;
   }
 
@@ -111,14 +129,17 @@ function activateTheButton(os, arch){
   // Windows
   if (os === 0) {
     if (arch === 0){
-//      console.log("Windows, ARM");      
+//      console.log("Windows, ARM");
     } else if (arch === 32) {
 //      console.log("Windows, 32 BIT");
     } else if (arch === 64) {
 //      console.log("Windows, 64 BIT");
-    } // else {
+    }  else {
 //      console.log("Not Detected.");
-    // }
+      disableTheButton();
+      return;
+    }
+
   // Mac
   } else if (os === 1) {
     if (arch === 0) {  
@@ -128,10 +149,13 @@ function activateTheButton(os, arch){
 //      console.log("UNSUPPORTED!");
     } else if (arch === 64) {
 //      console.log("Mac, 64 Bit");
-    } //else {
+    } else {
 //      console.log("Mac not detected!");
-    // }
+      disableTheButton();
+      return;
+    }
 
+  // Linux
   } else if (os === 2) {
     if (arch === 0) {
 //      console.log("Linux, ARM");
@@ -141,8 +165,14 @@ function activateTheButton(os, arch){
 //      console.log("Linux, 64 Bit");
     } else {
 //      console.log("Linux not detected!");
+      disableTheButton();
+      return;
     }
-  } //else {
+
+  // Bad OS, somehow
+  } else {
 //    console.log("really really not detected!");
-//  }
+    disableTheButton();
+    return;
+  }
 }

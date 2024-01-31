@@ -38,17 +38,12 @@
     <div class="container">
       <div class="row">
         <div class="col-11 body-container rounded">
-          Best choice for your system based on detected OS and Architecture:
-          <br>
-          <button type="button" class="btn btn-outline-secondary">Download</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-11 body-container rounded">
           <ul class="nav nav-tabs">
+            <li id="downloadTab" class="nav-item">
+              <a id="downTab" class="nav-link local-link" aria-current="page" onclick="activateDownload()">
+                Detected Build                
+              </a>
+            </li>
             <li id="windowTab" class="nav-item">
               <a id="winTab" class="nav-link local-link" aria-current="page" onclick="activateWindows()">
                 
@@ -59,7 +54,8 @@
                   width="16"
                   height="16"
                 />
-              </a></li>
+              </a>
+            </li>
             <li class="nav-item"> 
               <a id="macTab" class="nav-link local-link" aria-current="page" onclick="activateMac()">
                 macOS
@@ -69,7 +65,8 @@
                   width="16"
                   height="16"
                 />
-              </a></li>
+              </a>
+            </li>
             <li class="nav-item"> 
               <a id="linTab" class="nav-link local-link" aria-current="page" onclick="activateLinux()">
                 Linux
@@ -87,6 +84,28 @@
     </div>
 
     <div class="container link-container">
+      <div id="downLinks" class="DLlinks">
+        <div class="row">
+          <div class="col-11 col-sm-10">
+            <div class="link-body rounded">
+              <h4>
+                Detected Build:
+              </h4>
+              
+              <ul style="list-style-type:none;">
+                <li>
+                  <h5>
+                    <a id="theButton" class="local-link" href="">
+                      <img length="10" width="10" src="main/res/iconmonstr-download.png"/>
+                      
+                    </a>
+                  </h5>                 
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="winLinks" class="DLlinks">
         <div class="row">
           <div class="col-11 col-sm-10">
