@@ -174,7 +174,7 @@ function activateTheButton(os, arch){
   } else if (os === 2) {
     if (arch === 0) {
       element.innerHTML = newContents + "Linux ARM AppImage</b></h4>";
-      element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-arm64.exe";
+      element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-aarch64.AppImage";
 
 //      console.log("Linux, ARM");
     } else if (arch === 32) {
@@ -183,7 +183,7 @@ function activateTheButton(os, arch){
 //      console.log("Linux, 32 Bit");
     } else if (arch === 64) {
       element.innerHTML = newContents + "Linux 64 Bit AppImage</b></h4>";
-      element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-aarch64.AppImage";
+      element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-x86_64.AppImage";
 
 //      console.log("Linux, 64 Bit");
     } else {
