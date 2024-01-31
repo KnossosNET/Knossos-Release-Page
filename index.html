@@ -14,7 +14,7 @@
     <title>Knossos.NET Downloads</title>
   </head>
 
-  <body onload="initOsChoice()" class="body_">
+  <body class="body_">
     <header>
       <div class="container header-container">
         <div class="row">
@@ -34,6 +34,16 @@
         </div>
       </div>
     </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-11 body-container rounded">
+          Best choice for your system based on detected OS and Architecture:
+          <br>
+          <button type="button" class="btn btn-outline-secondary">Download</button>
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <div class="row">
@@ -314,5 +324,12 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="main/res/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="main/js/download-scritps.js"></script>
+    <script src="main/js/ua-parser.pack.js"></script>
+    <script>
+      var uap = new UAParser();
+      var result = uap.getResult();
+      initPage(result.cpu.architecture);
+    </script>  
+
   </body>
 </html>

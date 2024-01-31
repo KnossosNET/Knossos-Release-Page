@@ -1,3 +1,19 @@
+function initPage(arch){
+  // still looking for a good ARM list.  Hopefully defaulting to ARM is enough.
+  const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
+  const arch32List = ["ia32", "x86", "amd32"];
+
+  let archResult = 0;
+
+  if (arch64List.includes(arch)) {
+    arch = 64;
+  } else if (arch32List.includes(arch)){
+    arch = 32;
+  }
+
+  initOsChoice(archResult);
+}
+
 function changeActivation(enable, id, id2){
   
   toggleSelectedTab(enable, id2);
@@ -61,7 +77,7 @@ function activateLinux(){
 
 // borrowed from Vlad Turak
 // https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
-function initOsChoice() {
+function initOsChoice(archResult) {
   
   const userAgent = window.navigator.userAgent,
       platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
@@ -70,14 +86,30 @@ function initOsChoice() {
       iosPlatforms = ['iPhone', 'iPad', 'iPod'];
 
   if (macosPlatforms.indexOf(platform) !== -1) {
+    activateTheButton(1, archResult)
     activateMac();
   } else if (iosPlatforms.indexOf(platform) !== -1) {
     activateMac();
   } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    activateTheButton(0, archResult)
     activateWindows();
   } else if (/Android/.test(userAgent)) {
     activateWindows();
   } else if (/Linux/.test(platform)) {
+    activateTheButton(2, archResult)
     activateLinux();
+  }
+}
+
+function activateTheButton(os, arch){
+  // sanity!
+  if (os < 0 || os > 2){
+    return;
+  }
+
+  
+
+  if (os === 0) {
+    
   }
 }
