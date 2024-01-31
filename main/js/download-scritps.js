@@ -1,14 +1,14 @@
 function initPage(arch){
-  // still looking for a good ARM list.  Hopefully defaulting to ARM is enough.
+  // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
   const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
   const arch32List = ["ia32", "x86", "amd32"];
 
   let archResult = 0;
 
   if (arch64List.includes(arch)) {
-    arch = 64;
+    archResult = 64;
   } else if (arch32List.includes(arch)){
-    arch = 32;
+    archResult = 32;
   }
 
   initOsChoice(archResult);
@@ -71,7 +71,6 @@ function activateLinux(){
   changeActivation(true, "linLinks", "linTab");
 
   const style = getComputedStyle(document.getElementById("windowTab"));
-  console.log("Why yes, I am a taco.")
   console.log(style);
 }
 
@@ -102,14 +101,49 @@ function initOsChoice(archResult) {
 }
 
 function activateTheButton(os, arch){
+  console.log(`Got ${os} and ${arch}` );
+
   // sanity!
   if (os < 0 || os > 2){
     return;
   }
 
-  
 
+  // Windows
   if (os === 0) {
-    
+    if (arch === 0){
+      console.log("Windows, ARM");      
+    } else if (arch === 32) {
+      console.log("Windows, 32 BIT");
+    } else if (arch === 64) {
+      console.log("Windows, 64 BIT");
+    } else {
+      console.log("Not Detected.");
+    }
+  // Mac
+  } else if (os === 1) {
+    if (arch === 0) {  
+      console.log("Mac, ARM");
+    } else if (arch === 32) {
+      console.log("Mac, 32 Bit");
+      console.log("UNSUPPORTED!");
+    } else if (arch === 64) {
+      console.log("Mac, 64 Bit");
+    } else {
+      console.log("Mac not detected!");
+    }
+
+  } else if (os === 2) {
+    if (arch === 0) {
+      console.log("Linux, ARM");
+    } else if (arch === 32) {
+      console.log("Linux, 32 Bit");
+    } else if (arch === 64) {
+      console.log("Linux, 64 Bit");
+    } else {
+      console.log("Linux not detected!");
+    }
+  } else {
+    console.log("really really not detected!");
   }
 }
