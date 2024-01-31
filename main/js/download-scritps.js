@@ -1,3 +1,4 @@
+// Run at the start of the page (called from the html) with our best guess at 
 function initPage(arch){
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
   const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
@@ -14,16 +15,16 @@ function initPage(arch){
   initOsChoice(archResult);
 }
 
+// Change tab appearance and download link contents
 function changeActivation(enable, id, id2){
   
   toggleSelectedTab(enable, id2);
   toggleContents(enable, id);
 }
 
+// Change the appearance of the tab based on whether it's selected.
 function toggleSelectedTab(enable, id2){
   const element = document.getElementById(id2);
-
-//  console.log(id2);
 
   if (enable === true){
     element.style.fontWeight = 'bold';
@@ -34,6 +35,7 @@ function toggleSelectedTab(enable, id2){
   }
 }
 
+// Switch the download link contents on or off.
 function toggleContents(enable, id)
 {
   const element = document.getElementById(id);
@@ -45,6 +47,7 @@ function toggleContents(enable, id)
   }
 }
 
+// Disable the auto detected downoad because we are not confident enough to have the correct choice.
 function disableTheButton(){
   toggleContents(false, "downLinks");
   toggleContents(false, "downloadTab");
@@ -52,8 +55,8 @@ function disableTheButton(){
 
 
 function activateDownload(){
-// console.log("Convenience Build Chosen!");
 
+  // turn off everything else
   changeActivation(false, "macLinks", "macTab");
   changeActivation(false, "linLinks", "linTab");
   changeActivation(false, "winLinks", "winTab");
@@ -64,6 +67,7 @@ function activateDownload(){
 function activateWindows(){
 //  console.log("Windows Chosen");
 
+  // turn off everything else
   changeActivation(false, "macLinks", "macTab");
   changeActivation(false, "linLinks", "linTab");
   changeActivation(true, "winLinks", "winTab");
@@ -71,8 +75,8 @@ function activateWindows(){
 }
 
 function activateMac(){
-//  console.log("macOS chosen");
 
+  // turn off everything else
   changeActivation(false, "linLinks", "linTab");
   changeActivation(false, "winLinks", "winTab");
   changeActivation(true, "macLinks", "macTab");
@@ -80,16 +84,18 @@ function activateMac(){
 }
 
 function activateLinux(){
-//  console.log("Linux chosen");
+  // turn on linux
+  changeActivation(true, "linLinks", "linTab");
 
+  // turn off everything else
   changeActivation(false, "winLinks", "winTab");
   changeActivation(false, "macLinks", "macTab");
-  changeActivation(true, "linLinks", "linTab");
   changeActivation(false, "downLinks", "downTab")
 }
 
 // borrowed from Vlad Turak
 // https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
+// Despite us having the other library for detecting these settings, this has worked well enough so far
 function initOsChoice(archResult) {
   const userAgent = window.navigator.userAgent,
       platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
@@ -116,8 +122,6 @@ function initOsChoice(archResult) {
 }
 
 function activateTheButton(os, arch){
-// For testing
-//  console.log(`Got ${os} and ${arch}` );
 
   // sanity!
   if (os < 0 || os > 2){
@@ -126,20 +130,22 @@ function activateTheButton(os, arch){
   }
 
   const anchorElement = document.getElementById("theButton");
+  // Download Link contents
   let newContents = '<h4><b><br><img length="15" width="15" src="main/res/iconmonstr-download.png"/> ';
+  // Contents for notes *after* the download link
   let noteContents = "";
+
+  // arch 0 means ARM, 32 means 32 bit, 64 means 64 bit
 
   // Windows
   if (os === 0) {
     if (arch === 0){
       newContents += "Windows ARM Installer</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-arm64.exe";
-      console.log("Windows, ARM");
 
     } else if (arch === 32) {
       newContents +=  "Windows 32 Bit Installer</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-x86.exe";
-            console.log("Windows, 32 BIT");
     
     } else if (arch === 64) {
       newContents +=  "Windows 64 Bit Installer</b></h4>";
@@ -156,24 +162,20 @@ function activateTheButton(os, arch){
 
   // Mac
   } else if (os === 1) {
+
     if (arch === 0) {  
       newContents += "Mac Universal DMG</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9.dmg";
 
-//      console.log("Mac, ARM");
     } else if (arch === 32) {
       // Unsuppoted
       disableTheButton();
-//      console.log("Mac, 32 Bit");
-//      console.log("UNSUPPORTED!");
 
     } else if (arch === 64) {
-//      console.log("Mac, 64 Bit");
       newContents +=  "Mac Universal DMG</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9.dmg";
 
     } else {
-//      console.log("Mac not detected!");
       disableTheButton();
       return;
     }
@@ -183,25 +185,24 @@ function activateTheButton(os, arch){
     if (arch === 0) {
       newContents +=  "Linux ARM AppImage</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-aarch64.AppImage";
-//      console.log("Linux, ARM");
 
     } else if (arch === 32) {
         // Unsupported
         disableTheButton();
-//      console.log("Linux, 32 Bit");
 
     } else if (arch === 64) {
       newContents += "Linux 64 Bit AppImage</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-x86_64.AppImage";
 
-//      console.log("Linux, 64 Bit");
+
     } else {
-//      console.log("Linux not detected!");
       disableTheButton();
       return;
     }
 
-  // Bad OS, somehow
+    noteContents += "NOTE: When using these images in combination with appimaged or other management system, we recommend disabling auto-update in the Knossos settings tab."
+
+    // Bad OS, somehow
   } else {
 //    console.log("really really not detected!");
     disableTheButton();
