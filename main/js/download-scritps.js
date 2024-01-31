@@ -148,14 +148,14 @@ function activateTheButton(os, arch){
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-x86.exe";
     
     } else if (arch === 64) {
-      newContents +=  "Windows 64 Bit Installer</b></h4>";
+      newContents +=  "Windows 64 Bit Intel Installer</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-x64.exe";
 
       // Make sure windows users know why their ARM build was not detected.
       noteContents += "<br><div class='minor-text'>Note: 64-Bit Windows Builds will work on ARM via emulation"
-//      console.log("Windows, 64 BIT");
+
+    // Bogus Windows arch
     }  else {
-//      console.log("Not Detected.");
       disableTheButton();
       return;
     }
@@ -175,6 +175,7 @@ function activateTheButton(os, arch){
       newContents +=  "Mac Universal DMG</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9.dmg";
 
+    // Bogus Mac Arch, (Or so old, we're wondering how they're still using it)
     } else {
       disableTheButton();
       return;
@@ -194,7 +195,7 @@ function activateTheButton(os, arch){
       newContents += "Linux 64 Bit AppImage</b></h4>";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-x86_64.AppImage";
 
-
+    // Bogus Linux Arch
     } else {
       disableTheButton();
       return;
@@ -212,8 +213,8 @@ function activateTheButton(os, arch){
   // Set download link text
   anchorElement.innerHTML = newContents;
 
-  
-  noteContents += "<br><br>For other builds, please select the respective OS tab."
+  // Add some final text, explaining the use of other tabs
+  noteContents += "<br><br>For other downloads, please select the respective OS tab"
   document.getElementById("button-extra-text").innerHTML = noteContents;
 
   // Go ahead and let the user see it
