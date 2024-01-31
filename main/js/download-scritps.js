@@ -23,7 +23,7 @@ function changeActivation(enable, id, id2){
 function toggleSelectedTab(enable, id2){
   const element = document.getElementById(id2);
 
-  console.log(id2);
+//  console.log(id2);
 
   if (enable === true){
     element.style.fontWeight = 'bold';
@@ -46,7 +46,7 @@ function toggleContents(enable, id)
 }
 
 function activateWindows(){
-  console.log("Windows Chosen");
+//  console.log("Windows Chosen");
 
   changeActivation(false, "macLinks", "macTab");
   changeActivation(false, "linLinks", "linTab");
@@ -55,7 +55,7 @@ function activateWindows(){
 }
 
 function activateMac(){
-  console.log("macOS chosen");
+//  console.log("macOS chosen");
 
   changeActivation(false, "linLinks", "linTab");
   changeActivation(false, "winLinks", "winTab");
@@ -64,14 +64,12 @@ function activateMac(){
 }
 
 function activateLinux(){
-  console.log("Linux chosen");
+//  console.log("Linux chosen");
 
   changeActivation(false, "winLinks", "winTab");
   changeActivation(false, "macLinks", "macTab");
   changeActivation(true, "linLinks", "linTab");
 
-  const style = getComputedStyle(document.getElementById("windowTab"));
-  console.log(style);
 }
 
 // borrowed from Vlad Turak
@@ -101,7 +99,8 @@ function initOsChoice(archResult) {
 }
 
 function activateTheButton(os, arch){
-  console.log(`Got ${os} and ${arch}` );
+// For testing
+//  console.log(`Got ${os} and ${arch}` );
 
   // sanity!
   if (os < 0 || os > 2){
@@ -112,38 +111,38 @@ function activateTheButton(os, arch){
   // Windows
   if (os === 0) {
     if (arch === 0){
-      console.log("Windows, ARM");      
+//      console.log("Windows, ARM");      
     } else if (arch === 32) {
-      console.log("Windows, 32 BIT");
+//      console.log("Windows, 32 BIT");
     } else if (arch === 64) {
-      console.log("Windows, 64 BIT");
-    } else {
-      console.log("Not Detected.");
-    }
+//      console.log("Windows, 64 BIT");
+    } // else {
+//      console.log("Not Detected.");
+    // }
   // Mac
   } else if (os === 1) {
     if (arch === 0) {  
-      console.log("Mac, ARM");
+//      console.log("Mac, ARM");
     } else if (arch === 32) {
-      console.log("Mac, 32 Bit");
-      console.log("UNSUPPORTED!");
+//      console.log("Mac, 32 Bit");
+//      console.log("UNSUPPORTED!");
     } else if (arch === 64) {
-      console.log("Mac, 64 Bit");
-    } else {
-      console.log("Mac not detected!");
-    }
+//      console.log("Mac, 64 Bit");
+    } //else {
+//      console.log("Mac not detected!");
+    // }
 
   } else if (os === 2) {
     if (arch === 0) {
-      console.log("Linux, ARM");
+//      console.log("Linux, ARM");
     } else if (arch === 32) {
-      console.log("Linux, 32 Bit");
+//      console.log("Linux, 32 Bit");
     } else if (arch === 64) {
-      console.log("Linux, 64 Bit");
+//      console.log("Linux, 64 Bit");
     } else {
-      console.log("Linux not detected!");
+//      console.log("Linux not detected!");
     }
-  } else {
-    console.log("really really not detected!");
-  }
+  } //else {
+//    console.log("really really not detected!");
+//  }
 }
