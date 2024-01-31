@@ -126,20 +126,20 @@ function activateTheButton(os, arch){
   }
 
   const element = document.getElementById("theButton");
-  let newContents = '<br><br><img length="10" width="10" src="main/res/iconmonstr-download.png"/> ';
+  let newContents = '<h4><b><br><img length="15" width="15" src="main/res/iconmonstr-download.png"/> ';
 
   // Windows
   if (os === 0) {
     if (arch === 0){
-      element.innerHTML = newContents + "Windows ARM Installer";
+      element.innerHTML = newContents + "Windows ARM Installer</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-arm64.exe";
 //      console.log("Windows, ARM");
     } else if (arch === 32) {
-      element.innerHTML = newContents + "Windows 32 Bit Installer";
+      element.innerHTML = newContents + "Windows 32 Bit Installer</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-x86.exe";
       //      console.log("Windows, 32 BIT");
     } else if (arch === 64) {
-      element.innerHTML = newContents + "Windows 64 Bit Installer";
+      element.innerHTML = newContents + "Windows 64 Bit Installer</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-x64.exe";
 //      console.log("Windows, 64 BIT");
     }  else {
@@ -151,7 +151,7 @@ function activateTheButton(os, arch){
   // Mac
   } else if (os === 1) {
     if (arch === 0) {  
-      element.innerHTML = newContents + "Mac Universal DMG";
+      element.innerHTML = newContents + "Mac Universal DMG</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9.dmg";
 
 //      console.log("Mac, ARM");
@@ -162,7 +162,7 @@ function activateTheButton(os, arch){
 //      console.log("UNSUPPORTED!");
     } else if (arch === 64) {
 //      console.log("Mac, 64 Bit");
-      element.innerHTML = newContents + "Mac Universal DMG";
+      element.innerHTML = newContents + "Mac Universal DMG</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9.dmg";
     } else {
 //      console.log("Mac not detected!");
@@ -173,7 +173,7 @@ function activateTheButton(os, arch){
   // Linux
   } else if (os === 2) {
     if (arch === 0) {
-      element.innerHTML = newContents + "Linux ARM AppImage";
+      element.innerHTML = newContents + "Linux ARM AppImage</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-0.2.0-RC9-arm64.exe";
 
 //      console.log("Linux, ARM");
@@ -182,7 +182,7 @@ function activateTheButton(os, arch){
         disableTheButton();
 //      console.log("Linux, 32 Bit");
     } else if (arch === 64) {
-      element.innerHTML = newContents + "Linux 64 Bit AppImage";
+      element.innerHTML = newContents + "Linux 64 Bit AppImage</b></h4>";
       element.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC9/Knossos.NET-aarch64.AppImage";
 
 //      console.log("Linux, 64 Bit");
