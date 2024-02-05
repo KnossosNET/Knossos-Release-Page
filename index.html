@@ -14,7 +14,7 @@
     <title>Knossos.NET Downloads</title>
   </head>
 
-  <body onload="initOsChoice()" class="body_">
+  <body class="body_">
     <header>
       <div class="container header-container">
         <div class="row">
@@ -39,6 +39,17 @@
       <div class="row">
         <div class="col-11 body-container rounded">
           <ul class="nav nav-tabs">
+            <li id="downloadTab" class="nav-item">
+              <a id="downTab" class="nav-link local-link" aria-current="page" onclick="activateDownload()">
+                Auto-Detected          
+                <img 
+                  alt="Detected"
+                  src="main/res/iconmonstr-radar.png"
+                  width="16"
+                  height="16"
+                />
+              </a>
+            </li>
             <li id="windowTab" class="nav-item">
               <a id="winTab" class="nav-link local-link" aria-current="page" onclick="activateWindows()">
                 
@@ -49,7 +60,8 @@
                   width="16"
                   height="16"
                 />
-              </a></li>
+              </a>
+            </li>
             <li class="nav-item"> 
               <a id="macTab" class="nav-link local-link" aria-current="page" onclick="activateMac()">
                 macOS
@@ -59,7 +71,8 @@
                   width="16"
                   height="16"
                 />
-              </a></li>
+              </a>
+            </li>
             <li class="nav-item"> 
               <a id="linTab" class="nav-link local-link" aria-current="page" onclick="activateLinux()">
                 Linux
@@ -77,6 +90,24 @@
     </div>
 
     <div class="container link-container">
+      <div id="downLinks" class="DLlinks">
+        <div class="row">
+          <div class="col-11 col-sm-10">
+            <div class="link-body rounded">              
+              <ul style="list-style-type:none;">
+                <li>
+                  <a id="theButton" class="local-link" href="">
+                    <img length="10" width="10" src="main/res/iconmonstr-download.png"/>
+                    
+                  </a>
+                  <h5 id="button-extra-text">
+                  </h5>                 
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="winLinks" class="DLlinks">
         <div class="row">
           <div class="col-11 col-sm-10">
@@ -314,5 +345,12 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="main/res/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="main/js/download-scritps.js"></script>
+    <script src="main/js/ua-parser.pack.js"></script>
+    <script>
+      var uap = new UAParser();
+      var result = uap.getResult();
+      initPage(result.cpu.architecture);
+    </script>  
+
   </body>
 </html>
