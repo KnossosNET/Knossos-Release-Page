@@ -49,6 +49,13 @@ const latestManualVersion = "0.2.0-RC10";
 
 // Run at the start of the page (called from the html) with our best guess at 
 function initPage(arch){
+  populateFields();
+
+  fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
+  .then((response) => response.json())
+  .then((responseJSON) => get_info(responseJSON))
+  .then(populateFields);
+
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
   const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
   const arch32List = ["ia32", "x86", "amd32"];
@@ -62,13 +69,6 @@ function initPage(arch){
   }
 
   initOsChoice(archResult);
-
-  populateFields();
-
-  let response = fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-
 }
 
 // Change tab appearance and download link contents
@@ -305,4 +305,70 @@ function populateFields(){
   document.getElementById("linuxx64-appimage-link").href = linuxLinks[1];
   document.getElementById("linuxarm-binaries-link").href = linuxLinks[2];
   document.getElementById("linuxx64-binaries-link").href = linuxLinks[3];
+}
+
+function get_info(response){
+  console.log(response);
+
+  if (!response || !response.hasOwnProperty("assets")){
+
+    console.log("Early return. Response is null or does not have assets");
+    return;
+  }
+
+  let newVersion = latestManualVersion;
+
+  if (response.hasOwnProperty("tag_name")){
+    newVersion = response.tag_name;
+  }
+
+  let x = 0;
+
+  while (x < response.assets.length){
+    if (!response.assets[x].hasOwnProperty("name") || !response.assets[x].hasOwnProperty("browser_download_url")){
+      continue;
+    }
+
+    if (response.assets[x].name.slice(-9)=== "arm64.exe"){
+      windowsVersions[0] = newVersion;
+      windowsLinks[0] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name.slice(-7)==="x64.exe"){
+      windowsVersions[1] = newVersion;
+      windowsLinks[1] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name.slice(-7)==="x86.exe"){
+      windowsVersions[2] = newVersion;
+      windowsLinks[2] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name.slice(-4)===".dmg"){
+      macVersions[0] = newVersion;
+      macLinks[0] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name.slice(-16)==="aarch64.AppImage"){
+      linuxVersions[0] = newVersion;
+      linuxLinks[0] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name.slice(-15)==="x86_64.AppImage"){
+      linuxVersions[1] = newVersion;
+      linuxLinks[1] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name==="Linux_arm64.tar.gz"){
+      linuxVersions[2] = newVersion;
+      linuxLinks[2] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name==="Linux_x64.tar.gz"){
+      linuxVersions[3] = newVersion;
+      linuxLinks[3] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name==="MacOS_arm64.tar.gz"){
+      macVersions[1] = newVersion;
+      macLinks[1] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name==="MacOS_x64.tar.gz"){
+      macVersions[2] = newVersion;
+      macLinks[2] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name==="Windows_arm64.zip"){
+      windowsVersions[3] = newVersion;
+      windowsLinks[3] = response.assets[x].browser_download_url;
+    } else if (response.assets[x].name==="Windows_x64.zip"){
+      windowsVersions[4] = newVersion;
+      windowsLinks[4] = response.assets[x].browser_download_url;      
+    } else if (response.assets[x].name==="Windows_x86.zip"){
+      windowsVersions[5] = newVersion;
+      windowsLinks[5] = response.assets[x].browser_download_url;      
+    }
+    x++;
+  }
 }
