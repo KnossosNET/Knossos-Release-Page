@@ -1,3 +1,52 @@
+// Installer: ARM, x64, x86 THEN Portable: ARM, x64, x86
+const windowsLinks = [
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-arm64.exe", 
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x64.exe", 
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x86.exe",
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_arm64.zip",
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_x64.zip",
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_x86.zip"
+];
+
+const windowsVersions = [
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10"
+]
+
+// Universal, then Apple Silicon, Then Intel
+const macLinks = [
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10.dmg",
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/MacOS_arm64.tar.gz", 
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/MacOS_x64.tar.gz"
+];
+
+const macVersions = [
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10"
+]
+
+// Appimage: aarch64, x86_64 THEN Precombiled Binaries aarch64, x86_64
+const linuxLinks = [
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-aarch64.AppImage", 
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-x86_64.AppImage",
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Linux_arm64.tar.gz",
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Linux_x64.tar.gz"
+];
+
+const linuxVersions = [
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10",
+  "0.2.0-RC10"
+]
+
+const latestManualVersion = "0.2.0-RC10";
+
 // Run at the start of the page (called from the html) with our best guess at 
 function initPage(arch){
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
@@ -13,6 +62,13 @@ function initPage(arch){
   }
 
   initOsChoice(archResult);
+
+  populateFields();
+
+  let response = fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
 }
 
 // Change tab appearance and download link contents
@@ -141,15 +197,15 @@ function activateTheButton(os, arch){
   if (os === 0) {
     if (arch === 0){
       newContents += "Windows ARM64 Installer";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-arm64.exe";
+      anchorElement.href = windowsLinks[0];
 
     } else if (arch === 32) {
       newContents +=  "Windows 32 Bit Installer";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x86.exe";
+      anchorElement.href = windowsLinks[2];
     
     } else if (arch === 64) {
       newContents +=  "Windows 64 Bit Intel Installer";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x64.exe";
+      anchorElement.href = windowsLinks[1];
 
     // Bogus Windows arch
     }  else {
@@ -160,17 +216,14 @@ function activateTheButton(os, arch){
   // Mac
   } else if (os === 1) {
 
-    if (arch === 0) {  
+    // Because of universal build, handle both situations at once.
+    if (arch === 0 || arch === 64) {  
       newContents += "Mac Universal DMG";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg";
+      anchorElement.href = macLinks[0];
 
     } else if (arch === 32) {
       // Unsuppoted
       disableTheButton();
-
-    } else if (arch === 64) {
-      newContents +=  "Mac Universal DMG";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg";
 
     // Bogus Mac Arch, (Or so old, we're wondering how they're still using it)
     } else {
@@ -182,7 +235,7 @@ function activateTheButton(os, arch){
   } else if (os === 2) {
     if (arch === 0) {
       newContents +=  "Linux aarch64 AppImage";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-aarch64.AppImage";
+      anchorElement.href = linuxLinks[0];
 
     } else if (arch === 32) {
         // Unsupported
@@ -190,7 +243,7 @@ function activateTheButton(os, arch){
 
     } else if (arch === 64) {
       newContents += "Linux x86_64 AppImage";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-x86_64.AppImage";
+      anchorElement.href = linuxLinks[1];
 
     // Bogus Linux Arch
     } else {
@@ -215,4 +268,41 @@ function activateTheButton(os, arch){
 
   // Go ahead and let the user see it
   activateDownload();
+}
+
+function populateFields(){
+
+  document.getElementById("winarm-installer-version").innerHTML = windowsVersions[0];
+  document.getElementById("winx64-installer-version").innerHTML = windowsVersions[1];
+  document.getElementById("winx86-installer-version").innerHTML = windowsVersions[2];
+  document.getElementById("winarm-pack-version").innerHTML = windowsVersions[3];
+  document.getElementById("winx64-pack-version").innerHTML = windowsVersions[4];
+  document.getElementById("winx86-pack-version").innerHTML = windowsVersions[5];
+
+  document.getElementById("winarm-installer-link").href = windowsLinks[0];
+  document.getElementById("winx64-installer-link").href = windowsLinks[1];
+  document.getElementById("winx86-installer-link").href = windowsLinks[2];
+  document.getElementById("winarm-pack-link").href = windowsLinks[3];
+  document.getElementById("winx64-pack-link").href = windowsLinks[4];
+  document.getElementById("winx86-pack-link").href = windowsLinks[5];
+
+
+  document.getElementById("macuni-version").innerHTML = macVersions[0];
+  document.getElementById("macapplesilicon-version").innerHTML = macVersions[1];
+  document.getElementById("macintel-version").innerHTML = macVersions[2];
+
+  document.getElementById("macuni-link").href = macLinks[0];
+  document.getElementById("macapplesilicon-link").href = macLinks[1];
+  document.getElementById("macintel-link").href = macLinks[2];
+
+
+  document.getElementById("linuxarm-appimage-version").innerHTML = linuxVersions[0];
+  document.getElementById("linuxx64-appimage-version").innerHTML = linuxVersions[1];
+  document.getElementById("linuxarm-binaries-version").innerHTML = linuxVersions[2];
+  document.getElementById("linuxx64-binaries-version").innerHTML = linuxVersions[3];
+
+  document.getElementById("linuxarm-appimage-link").href = linuxLinks[0];
+  document.getElementById("linuxx64-appimage-link").href = linuxLinks[1];
+  document.getElementById("linuxarm-binaries-link").href = linuxLinks[2];
+  document.getElementById("linuxx64-binaries-link").href = linuxLinks[3];
 }
