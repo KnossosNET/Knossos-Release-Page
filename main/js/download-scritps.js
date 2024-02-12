@@ -162,7 +162,7 @@ function activateTheButton(os, arch){
 
     if (arch === 0) {  
       newContents += "Mac Universal DMG</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10.dmg";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg";
 
     } else if (arch === 32) {
       // Unsuppoted
@@ -170,7 +170,7 @@ function activateTheButton(os, arch){
 
     } else if (arch === 64) {
       newContents +=  "Mac Universal DMG</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10.dmg";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg";
 
     // Bogus Mac Arch, (Or so old, we're wondering how they're still using it)
     } else {
