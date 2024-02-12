@@ -141,15 +141,15 @@ function activateTheButton(os, arch){
   if (os === 0) {
     if (arch === 0){
       newContents += "Windows ARM64 Installer</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-arm64.exe";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-arm64.exe";
 
     } else if (arch === 32) {
       newContents +=  "Windows 32 Bit Installer</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x86.exe";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x86.exe";
     
     } else if (arch === 64) {
       newContents +=  "Windows 64 Bit Intel Installer</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x64.exe";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x64.exe";
 
     // Bogus Windows arch
     }  else {
@@ -182,7 +182,7 @@ function activateTheButton(os, arch){
   } else if (os === 2) {
     if (arch === 0) {
       newContents +=  "Linux aarch64 AppImage</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-aarch64.AppImage";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-aarch64.AppImage";
 
     } else if (arch === 32) {
         // Unsupported
@@ -190,7 +190,7 @@ function activateTheButton(os, arch){
 
     } else if (arch === 64) {
       newContents += "Linux x86_64 AppImage</b></h4>";
-      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-x86_64.AppImage";
+      anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-x86_64.AppImage";
 
     // Bogus Linux Arch
     } else {
