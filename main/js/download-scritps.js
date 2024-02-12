@@ -1,6 +1,6 @@
 // Installer: ARM, x64, x86 THEN Portable: ARM, x64, x86
 const windowsLinks = [
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-arm64.exe", 
+  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-arm64.ex", 
   "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x64.exe", 
   "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x86.exe",
   "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_arm64.zip",
