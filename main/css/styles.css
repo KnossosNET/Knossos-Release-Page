@@ -50,6 +50,7 @@ a {
 
 a:hover {
     color: #7c22bd;
+    cursor: pointer;
 }
 
 h2 {
