@@ -272,12 +272,12 @@ function activateTheButton(os, arch){
 
 function populateFields(){
 
-  document.getElementById("winarm-installer-version").innerHTML = windowsVersions[0];
-  document.getElementById("winx64-installer-version").innerHTML = windowsVersions[1];
-  document.getElementById("winx86-installer-version").innerHTML = windowsVersions[2];
-  document.getElementById("winarm-pack-version").innerHTML = windowsVersions[3];
-  document.getElementById("winx64-pack-version").innerHTML = windowsVersions[4];
-  document.getElementById("winx86-pack-version").innerHTML = windowsVersions[5];
+  document.getElementById("winarm-installer-version").textContent = windowsVersions[0];
+  document.getElementById("winx64-installer-version").textContent = windowsVersions[1];
+  document.getElementById("winx86-installer-version").textContent = windowsVersions[2];
+  document.getElementById("winarm-pack-version").textContent = windowsVersions[3];
+  document.getElementById("winx64-pack-version").textContent = windowsVersions[4];
+  document.getElementById("winx86-pack-version").textContent = windowsVersions[5];
 
   document.getElementById("winarm-installer-link").href = windowsLinks[0];
   document.getElementById("winx64-installer-link").href = windowsLinks[1];
@@ -287,19 +287,19 @@ function populateFields(){
   document.getElementById("winx86-pack-link").href = windowsLinks[5];
 
 
-  document.getElementById("macuni-version").innerHTML = macVersions[0];
-  document.getElementById("macapplesilicon-version").innerHTML = macVersions[1];
-  document.getElementById("macintel-version").innerHTML = macVersions[2];
+  document.getElementById("macuni-version").textContent = macVersions[0];
+  document.getElementById("macapplesilicon-version").textContent = macVersions[1];
+  document.getElementById("macintel-version").textContent = macVersions[2];
 
   document.getElementById("macuni-link").href = macLinks[0];
   document.getElementById("macapplesilicon-link").href = macLinks[1];
   document.getElementById("macintel-link").href = macLinks[2];
 
 
-  document.getElementById("linuxarm-appimage-version").innerHTML = linuxVersions[0];
-  document.getElementById("linuxx64-appimage-version").innerHTML = linuxVersions[1];
-  document.getElementById("linuxarm-binaries-version").innerHTML = linuxVersions[2];
-  document.getElementById("linuxx64-binaries-version").innerHTML = linuxVersions[3];
+  document.getElementById("linuxarm-appimage-version").textContent = linuxVersions[0];
+  document.getElementById("linuxx64-appimage-version").textContent = linuxVersions[1];
+  document.getElementById("linuxarm-binaries-version").textContent = linuxVersions[2];
+  document.getElementById("linuxx64-binaries-version").textContent = linuxVersions[3];
 
   document.getElementById("linuxarm-appimage-link").href = linuxLinks[0];
   document.getElementById("linuxx64-appimage-link").href = linuxLinks[1];
