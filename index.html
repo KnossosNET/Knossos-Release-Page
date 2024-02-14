@@ -40,6 +40,7 @@
         <div class="col-11 body-container rounded">
           <ul class="nav nav-tabs">
             <li id="downloadTab" class="nav-item">
+              <!-- Scripting used when this link is clicked -->
               <a id="downTab" class="nav-link local-link" aria-current="page" onclick="activateDownload()">
                 Auto-Detected          
                 <img 
@@ -51,6 +52,7 @@
               </a>
             </li>
             <li id="windowTab" class="nav-item">
+              <!-- Scripting used when this link is clicked -->
               <a id="winTab" class="nav-link local-link" aria-current="page" onclick="activateWindows()">
                 
                 Windows
@@ -62,7 +64,8 @@
                 />
               </a>
             </li>
-            <li class="nav-item"> 
+            <li class="nav-item">
+              <!-- Scripting used when this link is clicked -->
               <a id="macTab" class="nav-link local-link" aria-current="page" onclick="activateMac()">
                 macOS
                 <img 
@@ -74,6 +77,7 @@
               </a>
             </li>
             <li class="nav-item"> 
+              <!-- Scripting used when this link is clicked -->
               <a id="linTab" class="nav-link local-link" aria-current="page" onclick="activateLinux()">
                 Linux
                 <img 
@@ -103,6 +107,7 @@
                   </a>
                   <h5 id="button-extra-text">
                   </h5>
+                  <!-- Spacing gives the footer space to be low enough and makes the auto detect tab to be as large as the others-->
                   <br>
                   <br>
                   <br>
@@ -248,6 +253,7 @@
                     </a>
                     <span class="minor-text">
                       &ensp;&ensp;
+                      <!-- Spacing gives the footer space to be low enough and makes the mac tab to be as large as the others-->
                       <br>
                       <br>
                       <br>
@@ -320,6 +326,7 @@
       </div>
     </div>
 
+    <!-- Spacing between the tabs and lower links and footer-->
     <br>
 
 
@@ -357,7 +364,8 @@
     </div>
 
     <footer class="footer-area">
-      
+      <!--Yes, I know this is a little hacky, but sticking the bottom background to the 
+        bottom page works better if this is here. It will not appear without text contents.-->
       <br>      
       <br>
       <br>
