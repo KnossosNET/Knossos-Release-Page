@@ -51,10 +51,16 @@ const latestManualVersion = "0.2.0-RC10";
 function initPage(arch){
   populateFields();
 
-  fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
-  .then((response) => response.json())
-  .then((responseJSON) => get_info(responseJSON))
-  .then(populateFields);
+  try{
+    fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
+    .then((response) => response.json())
+    .then((responseJSON) => get_info(responseJSON))
+    .then(populateFields);
+  } 
+  catch (error) {
+    console.log("Fetching the most recent build from the github api failed. The error encountered was:")
+    console.error(error);
+  }
 
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
   const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
