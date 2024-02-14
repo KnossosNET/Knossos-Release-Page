@@ -131,7 +131,7 @@ function activateTheButton(os, arch){
 
   const anchorElement = document.getElementById("theButton");
   // Download Link contents
-  let newContents = '<h4><b><br><img length="15" width="15" src="main/res/iconmonstr-download.png"/> ';
+  let newContents = '';
   // Contents for notes *after* the download link
   let noteContents = "";
 
@@ -140,15 +140,15 @@ function activateTheButton(os, arch){
   // Windows
   if (os === 0) {
     if (arch === 0){
-      newContents += "Windows ARM64 Installer</b></h4>";
+      newContents += "Windows ARM64 Installer";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-arm64.exe";
 
     } else if (arch === 32) {
-      newContents +=  "Windows 32 Bit Installer</b></h4>";
+      newContents +=  "Windows 32 Bit Installer";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x86.exe";
     
     } else if (arch === 64) {
-      newContents +=  "Windows 64 Bit Intel Installer</b></h4>";
+      newContents +=  "Windows 64 Bit Intel Installer";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x64.exe";
 
     // Bogus Windows arch
@@ -161,7 +161,7 @@ function activateTheButton(os, arch){
   } else if (os === 1) {
 
     if (arch === 0) {  
-      newContents += "Mac Universal DMG</b></h4>";
+      newContents += "Mac Universal DMG";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg";
 
     } else if (arch === 32) {
@@ -169,7 +169,7 @@ function activateTheButton(os, arch){
       disableTheButton();
 
     } else if (arch === 64) {
-      newContents +=  "Mac Universal DMG</b></h4>";
+      newContents +=  "Mac Universal DMG";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg";
 
     // Bogus Mac Arch, (Or so old, we're wondering how they're still using it)
@@ -181,7 +181,7 @@ function activateTheButton(os, arch){
   // Linux
   } else if (os === 2) {
     if (arch === 0) {
-      newContents +=  "Linux aarch64 AppImage</b></h4>";
+      newContents +=  "Linux aarch64 AppImage";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-aarch64.AppImage";
 
     } else if (arch === 32) {
@@ -189,7 +189,7 @@ function activateTheButton(os, arch){
         disableTheButton();
 
     } else if (arch === 64) {
-      newContents += "Linux x86_64 AppImage</b></h4>";
+      newContents += "Linux x86_64 AppImage";
       anchorElement.href = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-x86_64.AppImage";
 
     // Bogus Linux Arch
@@ -208,10 +208,10 @@ function activateTheButton(os, arch){
   }
 
   // Set download link text
-  anchorElement.innerHTML = newContents;
+  document.getElementById("theButtonText").textContent = newContents;
 
   // Add some final text, explaining the use of other tabs
-  document.getElementById("button-extra-text").innerHTML = noteContents;
+  document.getElementById("button-extra-text").textContent = noteContents;
 
   // Go ahead and let the user see it
   activateDownload();
