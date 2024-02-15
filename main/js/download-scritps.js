@@ -1,67 +1,77 @@
-// Installer: ARM, x64, x86 THEN Portable: ARM, x64, x86
-const windowsLinks = [
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-arm64.ex", 
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x64.exe", 
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10-x86.exe",
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_arm64.zip",
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_x64.zip",
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Windows_x86.zip"
-];
+const fallbackVersion = "1.0.0"
 
-const windowsVersions = [
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10"
-]
+const buildMatrix = {
+  windows: {
+    arm64Installer: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Knossos.NET-${fallbackVersion}-arm64.exe`,
+      version: `${fallbackVersion}`
+    },
+    x64Installer: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Knossos.NET-${fallbackVersion}-x64.exe`,
+      version: `${fallbackVersion}`
+    },
+    x86Installer: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Knossos.NET-${fallbackVersion}-x86.exe`,
+      version: `${fallbackVersion}`
+    },
+    arm64: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Windows_arm64.zip`,
+      version: `${fallbackVersion}`
+    },
+    x64: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Windows_x64.zip`,
+      version: `${fallbackVersion}`
+    },
+    x86: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Windows_x86.zip`,
+      version: `${fallbackVersion}`
+    }
+  },
+  linux: {
+    arm64Installer: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Knossos.NET-aarch64.AppImage`,
+      version: `${fallbackVersion}`
+    },
+    x64Installer: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Knossos.NET-x86_64.AppImage`,
+      version: `${fallbackVersion}`
+    },
+    arm64: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Linux_arm64.tar.gz`,
+      version: `${fallbackVersion}`
+    },
+    x64: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Linux_x64.tar.gz`,
+      version: `${fallbackVersion}`
+    }
+  },
+  macos: {
+    installer: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/Knossos.NET-${fallbackVersion}.dmg`,
+      version: `${fallbackVersion}`
+    },
+    appleSilicon: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/MacOS_arm64.tar.gz`,
+      version: `${fallbackVersion}`
+    },
+    intel: {
+      url: `https://github.com/KnossosNET/Knossos.NET/releases/download/v${fallbackVersion}/MacOS_x64.tar.gz`,
+      version: `${fallbackVersion}`
+    }
+  }
+}
 
-// Universal, then Apple Silicon, Then Intel
-const macLinks = [
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-0.2.0-RC10.dmg",
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/MacOS_arm64.tar.gz", 
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/MacOS_x64.tar.gz"
-];
 
-const macVersions = [
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10"
-]
-
-// Appimage: aarch64, x86_64 THEN Precombiled Binaries aarch64, x86_64
-const linuxLinks = [
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-aarch64.AppImage", 
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Knossos.NET-x86_64.AppImage",
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Linux_arm64.tar.gz",
-  "https://github.com/KnossosNET/Knossos.NET/releases/download/v0.2.0-RC10/Linux_x64.tar.gz"
-];
-
-const linuxVersions = [
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10",
-  "0.2.0-RC10"
-]
-
-const latestManualVersion = "0.2.0-RC10";
-
-// Run at the start of the page (called from the html) with our best guess at 
+// Run at the start of the page (called from the html) with our best guess at Architecture
 function initPage(arch){
   populateFields();
 
-  try{
-    fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
+  fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
     .then((response) => response.json())
     .then((responseJSON) => get_info(responseJSON))
-    .then(populateFields);
-  } 
-  catch (error) {
-    console.log("Fetching the most recent build from the github api failed. The error encountered was:")
-    console.error(error);
-  }
-
+    .then(populateFields)
+    .catch (error => console.log(`Fetching the most recent build from the github api failed. The error encountered was: ${error}`));
+  
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
   const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
   const arch32List = ["ia32", "x86", "amd32"];
@@ -202,16 +212,16 @@ function activateTheButton(os, arch){
   // Windows
   if (os === 0) {
     if (arch === 0){
-      newContents += "Windows ARM64 Installer";
-      anchorElement.href = windowsLinks[0];
+      newContents += `${buildMatrix.windows.arm64Installer.version} Windows ARM64 Installer`;
+      anchorElement.href = buildMatrix.windows.arm64Installer.url;
 
     } else if (arch === 32) {
-      newContents +=  "Windows 32 Bit Installer";
-      anchorElement.href = windowsLinks[2];
+      newContents += `${buildMatrix.windows.x86Installer.version} Windows 32 Bit Installer`;
+      anchorElement.href = buildMatrix.windows.x86Installer.url;
     
     } else if (arch === 64) {
-      newContents +=  "Windows 64 Bit Intel Installer";
-      anchorElement.href = windowsLinks[1];
+      newContents += `${buildMatrix.windows.x64Installer.version} Windows 64 Bit Intel Installer`;
+      anchorElement.href = buildMatrix.windows.x64Installer.url;
 
     // Bogus Windows arch
     }  else {
@@ -224,14 +234,14 @@ function activateTheButton(os, arch){
 
     // Because of universal build, handle both situations at once.
     if (arch === 0 || arch === 64) {  
-      newContents += "Mac Universal DMG";
-      anchorElement.href = macLinks[0];
+      newContents += `${buildMatrix.macos.installer.version} macOS Universal DMG`;
+      anchorElement.href = buildMatrix.macos.installer.url;
 
     } else if (arch === 32) {
       // Unsuppoted
       disableTheButton();
 
-    // Bogus Mac Arch, (Or so old, we're wondering how they're still using it)
+    // Bogus Mac Arch (Or so old that we're wondering how they're still using it)
     } else {
       disableTheButton();
       return;
@@ -240,16 +250,16 @@ function activateTheButton(os, arch){
   // Linux
   } else if (os === 2) {
     if (arch === 0) {
-      newContents +=  "Linux aarch64 AppImage";
-      anchorElement.href = linuxLinks[0];
+      newContents +=  `${buildMatrix.linux.arm64Installer.version} Linux aarch64 AppImage`;
+      anchorElement.href = buildMatrix.linux.arm64Installer.url;
 
     } else if (arch === 32) {
         // Unsupported
         disableTheButton();
 
     } else if (arch === 64) {
-      newContents += "Linux x86_64 AppImage";
-      anchorElement.href = linuxLinks[1];
+      newContents += `${buildMatrix.linux.x64Installer.version} Linux x86_64 AppImage`;
+      anchorElement.href = buildMatrix.linux.x64.url;
 
     // Bogus Linux Arch
     } else {
@@ -278,39 +288,39 @@ function activateTheButton(os, arch){
 
 function populateFields(){
 
-  document.getElementById("winarm-installer-version").textContent = windowsVersions[0];
-  document.getElementById("winx64-installer-version").textContent = windowsVersions[1];
-  document.getElementById("winx86-installer-version").textContent = windowsVersions[2];
-  document.getElementById("winarm-pack-version").textContent = windowsVersions[3];
-  document.getElementById("winx64-pack-version").textContent = windowsVersions[4];
-  document.getElementById("winx86-pack-version").textContent = windowsVersions[5];
+  document.getElementById("winarm-installer-version").textContent = buildMatrix.windows.arm64Installer.version;
+  document.getElementById("winx64-installer-version").textContent = buildMatrix.windows.x64Installer.version;
+  document.getElementById("winx86-installer-version").textContent = buildMatrix.windows.x86Installer.version;
+  document.getElementById("winarm-pack-version").textContent = buildMatrix.windows.arm64.version;
+  document.getElementById("winx64-pack-version").textContent = buildMatrix.windows.x64.version;
+  document.getElementById("winx86-pack-version").textContent = buildMatrix.windows.x86.version;
 
-  document.getElementById("winarm-installer-link").href = windowsLinks[0];
-  document.getElementById("winx64-installer-link").href = windowsLinks[1];
-  document.getElementById("winx86-installer-link").href = windowsLinks[2];
-  document.getElementById("winarm-pack-link").href = windowsLinks[3];
-  document.getElementById("winx64-pack-link").href = windowsLinks[4];
-  document.getElementById("winx86-pack-link").href = windowsLinks[5];
-
-
-  document.getElementById("macuni-version").textContent = macVersions[0];
-  document.getElementById("macapplesilicon-version").textContent = macVersions[1];
-  document.getElementById("macintel-version").textContent = macVersions[2];
-
-  document.getElementById("macuni-link").href = macLinks[0];
-  document.getElementById("macapplesilicon-link").href = macLinks[1];
-  document.getElementById("macintel-link").href = macLinks[2];
+  document.getElementById("winarm-installer-link").href = buildMatrix.windows.arm64Installer.url;
+  document.getElementById("winx64-installer-link").href = buildMatrix.windows.x64Installer.url;
+  document.getElementById("winx86-installer-link").href = buildMatrix.windows.x86Installer.url;
+  document.getElementById("winarm-pack-link").href = buildMatrix.windows.arm64.url;
+  document.getElementById("winx64-pack-link").href = buildMatrix.windows.x64.url;
+  document.getElementById("winx86-pack-link").href = buildMatrix.windows.x86.url;
 
 
-  document.getElementById("linuxarm-appimage-version").textContent = linuxVersions[0];
-  document.getElementById("linuxx64-appimage-version").textContent = linuxVersions[1];
-  document.getElementById("linuxarm-binaries-version").textContent = linuxVersions[2];
-  document.getElementById("linuxx64-binaries-version").textContent = linuxVersions[3];
+  document.getElementById("macuni-version").textContent = buildMatrix.macos.installer.version;
+  document.getElementById("macapplesilicon-version").textContent = buildMatrix.macos.appleSilicon.version;
+  document.getElementById("macintel-version").textContent = buildMatrix.macos.intel.version;
 
-  document.getElementById("linuxarm-appimage-link").href = linuxLinks[0];
-  document.getElementById("linuxx64-appimage-link").href = linuxLinks[1];
-  document.getElementById("linuxarm-binaries-link").href = linuxLinks[2];
-  document.getElementById("linuxx64-binaries-link").href = linuxLinks[3];
+  document.getElementById("macuni-link").href = buildMatrix.macos.installer.url;
+  document.getElementById("macapplesilicon-link").href = buildMatrix.macos.appleSilicon.url;
+  document.getElementById("macintel-link").href = buildMatrix.macos.intel.url;
+
+
+  document.getElementById("linuxarm-appimage-version").textContent = buildMatrix.linux.arm64Installer.version;
+  document.getElementById("linuxx64-appimage-version").textContent = buildMatrix.linux.x64Installer.version;
+  document.getElementById("linuxarm-binaries-version").textContent = buildMatrix.linux.arm64.version;
+  document.getElementById("linuxx64-binaries-version").textContent = buildMatrix.linux.x64.version;
+
+  document.getElementById("linuxarm-appimage-link").href = buildMatrix.linux.arm64Installer.url;
+  document.getElementById("linuxx64-appimage-link").href = buildMatrix.linux.x64Installer.url;
+  document.getElementById("linuxarm-binaries-link").href = buildMatrix.linux.arm64.url;
+  document.getElementById("linuxx64-binaries-link").href = buildMatrix.linux.x64.url;
 }
 
 function get_info(response){
