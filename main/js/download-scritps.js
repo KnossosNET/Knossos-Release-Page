@@ -287,7 +287,6 @@ function activateTheButton(os, arch){
 }
 
 function populateFields(){
-
   document.getElementById("winarm-installer-version").textContent = buildMatrix.windows.arm64Installer.version;
   document.getElementById("winx64-installer-version").textContent = buildMatrix.windows.x64Installer.version;
   document.getElementById("winx86-installer-version").textContent = buildMatrix.windows.x86Installer.version;
@@ -346,44 +345,44 @@ function get_info(response){
     }
 
     if (response.assets[x].name.slice(-9)=== "arm64.exe"){
-      windowsVersions[0] = newVersion;
-      windowsLinks[0] = response.assets[x].browser_download_url;
+      buildMatrix.windows.arm64Installer.version = newVersion;
+      buildMatrix.windows.arm64Installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name.slice(-7)==="x64.exe"){
-      windowsVersions[1] = newVersion;
-      windowsLinks[1] = response.assets[x].browser_download_url;
+      buildMatrix.windows.x64Installer.version = newVersion;
+      buildMatrix.windows.x64Installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name.slice(-7)==="x86.exe"){
-      windowsVersions[2] = newVersion;
-      windowsLinks[2] = response.assets[x].browser_download_url;
+      buildMatrix.windows.x86Installer.version = newVersion;
+      buildMatrix.windows.x86Installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name.slice(-4)===".dmg"){
-      macVersions[0] = newVersion;
-      macLinks[0] = response.assets[x].browser_download_url;
+      buildMatrix.macos.installer.version = newVersion;
+      buildMatrix.macos.installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name.slice(-16)==="aarch64.AppImage"){
-      linuxVersions[0] = newVersion;
-      linuxLinks[0] = response.assets[x].browser_download_url;
+      buildMatrix.linux.arm64Installer.version = newVersion;
+      buildMatrix.linux.arm64Installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name.slice(-15)==="x86_64.AppImage"){
-      linuxVersions[1] = newVersion;
-      linuxLinks[1] = response.assets[x].browser_download_url;
+      buildMatrix.linux.x64Installer.version = newVersion;
+      buildMatrix.linux.x64Installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="Linux_arm64.tar.gz"){
-      linuxVersions[2] = newVersion;
-      linuxLinks[2] = response.assets[x].browser_download_url;
+      buildMatrix.linux.arm64.version = newVersion;
+      buildMatrix.linux.arm64.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="Linux_x64.tar.gz"){
-      linuxVersions[3] = newVersion;
-      linuxLinks[3] = response.assets[x].browser_download_url;
+      buildMatrix.linux.x64.version = newVersion;
+      buildMatrix.linux.x64.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="MacOS_arm64.tar.gz"){
-      macVersions[1] = newVersion;
-      macLinks[1] = response.assets[x].browser_download_url;
+      buildMatrix.macos.appleSilicon.version = newVersion;
+      buildMatrix.macos.appleSilicon.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="MacOS_x64.tar.gz"){
-      macVersions[2] = newVersion;
-      macLinks[2] = response.assets[x].browser_download_url;
+      buildMatrix.macos.intel.version = newVersion;
+      buildMatrix.macos.intel.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="Windows_arm64.zip"){
-      windowsVersions[3] = newVersion;
-      windowsLinks[3] = response.assets[x].browser_download_url;
+      buildMatrix.windows.arm64.version = newVersion;
+      buildMatrix.windows.arm64.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="Windows_x64.zip"){
-      windowsVersions[4] = newVersion;
-      windowsLinks[4] = response.assets[x].browser_download_url;      
+      buildMatrix.windows.x64.version = newVersion;
+      buildMatrix.windows.x64.url = response.assets[x].browser_download_url;      
     } else if (response.assets[x].name==="Windows_x86.zip"){
-      windowsVersions[5] = newVersion;
-      windowsLinks[5] = response.assets[x].browser_download_url;      
+      buildMatrix.windows.x86.version = newVersion;
+      buildMatrix.windows.x86.url = response.assets[x].browser_download_url;      
     }
     x++;
   }
