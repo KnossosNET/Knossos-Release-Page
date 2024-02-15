@@ -64,12 +64,12 @@ const buildMatrix = {
 
 // Run at the start of the page (called from the html) with our best guess at Architecture
 function initPage(arch){
-  populateFields();
+  populateFields(false);
 
   fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
     .then((response) => response.json())
     .then((responseJSON) => get_info(responseJSON))
-    .then(populateFields)
+    .then(populateFields(true))
     .catch (error => console.log(`Fetching the most recent build from the github api failed. The error encountered was: ${error}`));
   
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
@@ -167,6 +167,9 @@ function activateLinux(){
   changeActivation(false, "downLinks", "downTab")
 }
 
+let detectedOS = -1;
+let detectedArch = -1;
+
 // borrowed from Vlad Turak
 // https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
 // Despite us having the other library for detecting these settings, this has worked well enough so far
@@ -177,25 +180,34 @@ function initOsChoice(archResult) {
       windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
       iosPlatforms = ['iPhone', 'iPad', 'iPod'];
 
+  // save arch result for later
+  detectedArch = archResult;
+
   if (macosPlatforms.indexOf(platform) !== -1) {
+    detectedOS = 1;
     activateMac();
-    activateTheButton(1, archResult);
+    activateTheButton();
   } else if (iosPlatforms.indexOf(platform) !== -1) {
     activateMac();
     disableTheButton(); // No ios builds, so user must pick if they want one.
   } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    detectedOS = 0;
     activateWindows();
-    activateTheButton(0, archResult);
+    activateTheButton();
   } else if (/Android/.test(userAgent)) {
     activateWindows();
     disableTheButton(); // No android builds, so user must pick if they want one.
   } else if (/Linux/.test(platform)) {
+    detectedOS = 2;
     activateLinux();
-    activateTheButton(2, archResult);
+    activateTheButton();
   }
 }
 
-function activateTheButton(os, arch){
+function activateTheButton(){
+
+  const os = detectedOS;
+  const arch = detectedArch;
 
   // sanity!
   if (os < 0 || os > 2){
@@ -288,7 +300,7 @@ function activateTheButton(os, arch){
   activateDownload();
 }
 
-function populateFields(){
+function populateFields(populateAutoUpdate){
   document.getElementById("winarm-installer-version").textContent = buildMatrix.windows.arm64Installer.version;
   document.getElementById("winx64-installer-version").textContent = buildMatrix.windows.x64Installer.version;
   document.getElementById("winx86-installer-version").textContent = buildMatrix.windows.x86Installer.version;
@@ -322,7 +334,11 @@ function populateFields(){
   document.getElementById("linuxx64-appimage-link").href = buildMatrix.linux.x64Installer.url;
   document.getElementById("linuxarm-binaries-link").href = buildMatrix.linux.arm64.url;
   document.getElementById("linuxx64-binaries-link").href = buildMatrix.linux.x64.url;
-}
+
+    if (populateAutoUpdate){
+      activateTheButton();
+    }
+  }
 
 function get_info(response){
   console.log(response);
