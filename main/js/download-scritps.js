@@ -127,31 +127,33 @@ function disableTheButton(){
 
 
 function activateDownload(){
+  // turn on autodetect
+  changeActivation(true, "downLinks", "downTab")
 
   // turn off everything else
   changeActivation(false, "macLinks", "macTab");
   changeActivation(false, "linLinks", "linTab");
   changeActivation(false, "winLinks", "winTab");
-  changeActivation(true, "downLinks", "downTab")
 
 }
 
 function activateWindows(){
-//  console.log("Windows Chosen");
+  // turn on windows
+  changeActivation(true, "winLinks", "winTab");
 
   // turn off everything else
   changeActivation(false, "macLinks", "macTab");
   changeActivation(false, "linLinks", "linTab");
-  changeActivation(true, "winLinks", "winTab");
   changeActivation(false, "downLinks", "downTab")
 }
 
 function activateMac(){
+  // Turn on macOS
+  changeActivation(true, "macLinks", "macTab");
 
   // turn off everything else
   changeActivation(false, "linLinks", "linTab");
   changeActivation(false, "winLinks", "winTab");
-  changeActivation(true, "macLinks", "macTab");
   changeActivation(false, "downLinks", "downTab")
 }
 
