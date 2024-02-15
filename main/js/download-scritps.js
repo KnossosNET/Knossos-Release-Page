@@ -1,4 +1,4 @@
-const fallbackVersion = "1.0.0"
+const fallbackVersion = "test"
 
 const buildMatrix = {
   windows: {
@@ -333,10 +333,20 @@ function get_info(response){
     return;
   }
 
-  let newVersion = latestManualVersion;
+  let newVersion = fallbackVersion;
 
   if (response.hasOwnProperty("tag_name")){
-    newVersion = response.tag_name;
+    // Our tag names have the v, but in a lot of places we don't need it, so cut it off.
+    if (response.tag_name[0] === `v`){
+      newVersion = response.tag_name.slice(-response.tag_name.length + 1);
+    } else {
+      newVersion = response.tag_name;
+    }
+  }
+
+  // return if we already have this version.
+  if (newVersion === fallbackVersion){
+    return;
   }
 
   let x = 0;
