@@ -1,4 +1,4 @@
-const fallbackVersion = "test"
+const fallbackVersion = "1.0.0"
 
 const buildMatrix = {
   windows: {
@@ -68,8 +68,7 @@ function initPage(arch){
 
   fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
     .then((response) => response.json())
-    .then((responseJSON) => get_info(responseJSON))
-    .then(populateFields(true))
+    .then(responseJSON => { get_info(responseJSON); populateFields(true); })
     .catch (error => console.log(`Fetching the most recent build from the github api failed. The error encountered was: ${error}`));
   
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
