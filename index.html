@@ -20,6 +20,7 @@
         <div class="row">
           <div class="col-2">
             <img
+              id="webpageIcon"
               alt="Knossos.NET"
               width="96"
               height="96"
@@ -31,6 +32,19 @@
             
             <h2 class="page-heading">Knossos.NET Downloads</h2>
           </div>
+          <!-- One option for settings
+          <div lass="col-1">
+            <a class="semi-hidden-text">
+              <br>
+              
+              <img                   
+                src="main/res/iconmonstr-settings2.png"
+                width="24"
+                height="24"
+              />
+            </span>
+          </div>
+          -->
         </div>
       </div>
     </header>
@@ -330,52 +344,72 @@
     <br>
 
 
-    <div class="lower-navbar">
-      <h5>
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/KnossosNET/Knossos-Release-Page/issues">
-          Report Page Issues  
-        </a>
-        
-        &ensp;<b>|</b>&ensp;        
+    <div class="conatiner lower-navbar">
+      <div class="row">
+        <div class="col-6" style="padding-top: 8px; padding-left: 0px; margin-left: 0px;">
+          <h5>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/KnossosNET/Knossos.NET/releases">
+              All Releases  
+            </a>
+            
+            &ensp;<b>|</b>&ensp;        
+            
+            <a target="_blank" rel="noopener noreferrer" href="https://www.hard-light.net">
+              Hard-Light Productions 
+            </a>
 
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/KnossosNET/Knossos.NET/releases">
-          All Releases  
-        </a>
-        
-        &ensp;<b>|</b>&ensp;        
-        
-        <a target="_blank" rel="noopener noreferrer" href="https://www.hard-light.net">
-          Hard-Light Productions 
-        </a>
+            &ensp;<b>|</b>&ensp; 
+            
+            <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/cyhMBhMHzK">
+              Hard-Light Discord 
+            </a>
 
-        &ensp;<b>|</b>&ensp; 
-        
-        <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/cyhMBhMHzK">
-          Hard-Light Discord 
-        </a>
+            &ensp;<b>|</b>&ensp;
+            
+            <a target="_blank" rel="noopener noreferrer" href="https://pxo.nottheeye.com">
+              PXO
+            </a>
+          </h5>
+        </div>
 
-        &ensp;<b>|</b>&ensp;
-        
-        <a target="_blank" rel="noopener noreferrer" href="https://pxo.nottheeye.com">
-          PXO
-        </a>
-      </h5>
-
+        <div style="padding-bottom: 5px;" class="col-1">
+          <div div class="dropdown">
+            <button class="btn btn-sm" type="button"  data-toggle="dropdown">
+              <img                   
+                src="main/res/iconmonstr-settings3.png"
+                width="20"
+                height="20"
+              />
+            </button>
+            
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Report Knossos.NET Bug</a></li>
+              <li><a class="dropdown-item" href="#">Report Download Page Bug</a></li>
+              <div class="dropdown-divider"></div>
+              <li><a class="dropdown-item" href="#">KnossosNet Theme</a></li>
+              <li><a class="dropdown-item" href="#">Hard-Light Classic Theme</a></li>
+<!--          Need an icon for this one
+                <li><a class="dropdown-item" href="#">Vishnan Theme</a></li> -->
+              <li><a class="dropdown-item" href="#">Ancients Theme</a></li>
+              <li><a class="dropdown-item" href="#">Nightmare Theme</a></li>
+              <li><a class="dropdown-item" href="#">Aesdherian Theme</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="footer-area">
       <!--Yes, I know this is a little hacky, but sticking the bottom background to the 
         bottom page works better if this is here. It will not appear without text contents.-->
-      <br>      
       <br>
       <br>
-
-
+      <br>
     </footer>
 
     <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.-->
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="main/res/bootstrap/js/jquery-3.7.1.slim.min.js"></script>
+    <script src="main/res/bootstrap/js/popper.min.js"></script>
     <script src="main/res/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="main/js/download-scritps.js"></script>
     <script src="main/js/ua-parser.pack.js"></script>

@@ -340,7 +340,7 @@ function populateFields(populateAutoUpdate){
   }
 
 function get_info(response){
-  console.log(response);
+  //console.log(response);
 
   if (!response || !response.hasOwnProperty("assets")){
 

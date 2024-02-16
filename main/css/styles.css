@@ -83,6 +83,10 @@ h5 {
     font-size: smaller;
 }
 
+.semi-hidden-text {
+    font-size:xx-small
+}
+
 .lower-navbar {
     padding: 0px;
     padding-left: 40px;
@@ -164,3 +168,21 @@ li {
     margin: 0px;
 }
 
+.dropdown-menu {
+
+    background-color: #252525;
+}
+
+.dropdown-item {
+    color: #8423c5;
+}
+
+.dropdown-item:hover {
+    color: #8423c5;
+    background-color: #000;
+}
+
+.dropdown-divider {
+    background-color: #000000;
+    border-top: #000000
+}
