@@ -371,22 +371,22 @@ function get_info(response){
       continue;
     }
 
-    if (response.assets[x].name.slice(-9)=== "arm64.exe"){
+    if (response.assets[x].name.endsWith("arm64.exe")){
       buildMatrix.windows.arm64Installer.version = newVersion;
       buildMatrix.windows.arm64Installer.url = response.assets[x].browser_download_url;
-    } else if (response.assets[x].name.slice(-7)==="x64.exe"){
+    } else if (response.assets[x].name.endsWith("x64.exe")){
       buildMatrix.windows.x64Installer.version = newVersion;
       buildMatrix.windows.x64Installer.url = response.assets[x].browser_download_url;
-    } else if (response.assets[x].name.slice(-7)==="x86.exe"){
+    } else if (response.assets[x].name.endsWith("x86.exe")){
       buildMatrix.windows.x86Installer.version = newVersion;
       buildMatrix.windows.x86Installer.url = response.assets[x].browser_download_url;
-    } else if (response.assets[x].name.slice(-4)===".dmg"){
+    } else if (response.assets[x].name.endsWith(".dmg")){
       buildMatrix.macos.installer.version = newVersion;
       buildMatrix.macos.installer.url = response.assets[x].browser_download_url;
-    } else if (response.assets[x].name.slice(-16)==="aarch64.AppImage"){
+    } else if (response.assets[x].name.endsWith("aarch64.AppImage")){
       buildMatrix.linux.arm64Installer.version = newVersion;
       buildMatrix.linux.arm64Installer.url = response.assets[x].browser_download_url;
-    } else if (response.assets[x].name.slice(-15)==="x86_64.AppImage"){
+    } else if (response.assets[x].name.endsWith("x86_64.AppImage")){
       buildMatrix.linux.x64Installer.version = newVersion;
       buildMatrix.linux.x64Installer.url = response.assets[x].browser_download_url;
     } else if (response.assets[x].name==="Linux_arm64.tar.gz"){
