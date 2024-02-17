@@ -418,6 +418,18 @@ function get_info(response){
 function setPageTheme(theme){
   console.log(theme);
 
+  if (theme === "Knet")
+    theme = "";
+
+  currentTheme = document.getElementById("theme");
+
+  if (currentTheme){
+    currentTheme.href = `main/css/${theme}.css`;
+  } else {
+    document.getElementsByTagName('head')[0].insertAdjacentHTML(
+      'beforeend',
+      `<link id="theme" rel="stylesheet" href="main/css/${theme}.css" />`);  
+  }
 
   // modifying the rule in the stylesheet
 }
