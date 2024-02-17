@@ -187,3 +187,7 @@ li {
     background-color: #000000;
     border-top: #000000
 }
+
+.svg-filter{
+    filter: invert(53%) sepia(89%) saturate(264%) hue-rotate(224deg) brightness(78%) contrast(94%);
+}

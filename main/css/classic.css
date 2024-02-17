@@ -67,3 +67,7 @@ border-color: #000;
   color: #8423c5;
   background-color: #000;
 }
+
+.svg-filter{
+  filter: invert(71%) sepia(10%) saturate(1296%) hue-rotate(358deg) brightness(91%) contrast(89%);
+}

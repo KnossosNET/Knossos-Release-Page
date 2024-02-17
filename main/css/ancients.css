@@ -1,5 +1,5 @@
 header {
-  background-image: linear-gradient(180deg, #8423c5 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+  background-image: linear-gradient(180deg, #1B46EB 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
 }
 
 .body_ {
@@ -7,23 +7,23 @@ header {
 }
 
 a {
-  color: #ce93ff;
+  color: #93A6FF;
 }
 
 .local-link .minor-text{
-  color: #8d1beb;
+  color: #1B46EB;
 }
 
 a:hover {
-  color: #7c22bd;
+  color: #2224BD;
 }
 
 h1, h2, h3, h4, h5, .minor-text {
-  color: #ce93ff;
+  color: #93A6FF;
 }
 
 .footer-area{
-  background-image: linear-gradient(180deg, #8423c5 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+  background-image: linear-gradient(180deg, #1B46EB 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
 }
 
 li {
@@ -40,7 +40,7 @@ border-color: #000;
 }
 
 .nav-tabs:active .nav-item:active .nav-link:active {
-  color: #9e6ec0;
+  color: #6E7AC0;
   background-color:#242424;
 }
 
@@ -60,10 +60,14 @@ border-color: #000;
 
 
 .dropdown-item {
-  color: #8423c5;
+  color: #1B46EB;
 }
 
 .dropdown-item:hover {
-  color: #8423c5;
+  color: #1B46EB;
   background-color: #000;
+}
+
+.svg-filter{
+  filter: invert(47%) sepia(11%) saturate(1901%) hue-rotate(194deg) brightness(101%) contrast(92%);
 }
