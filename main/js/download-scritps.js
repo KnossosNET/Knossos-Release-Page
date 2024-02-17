@@ -423,6 +423,43 @@ function setPageTheme(theme){
 
   currentTheme = document.getElementById("theme");
 
+  const logo = document.getElementById("webpageIcon");
+
+  switch(theme){
+    case "Knet":
+      logo.src = "main/res/knossos-icon.ico";
+      console.log("Selected KNET icon.");
+      break;
+    case "Classic": // FIX ME!  I NEED THE CORRECT ICON!
+      logo.src = "main/res/themes/knossos-icon-original-ish.png";
+      console.log("Selected classic icon.");
+      break;
+    case "Vishnan": 
+      logo.src = "main/res/themes/knossos-icon-orange.png";
+      console.log("Selected vishnan icon.");
+      break;
+
+    case "Ancients":
+      logo.src = "main/res/themes/AncientKnossos.png";
+      console.log("Selected Ancient icon.");
+      break;
+
+    case "Nightmare":
+      logo.src = "main/res/themes/NightmareKnossos.png";
+      console.log("Selected Nightmare icon.");
+      break;
+
+    case "Ae":
+      logo.src = "main/res/themes/knossos-icon-ae.png";
+      console.log("Selected Ae icon.");
+      break;
+
+    default: 
+      logo.src = "main/res/knossos-icon.ico";
+      console.log("Selected default icon.");
+      break;
+  }
+
   if (currentTheme){
     currentTheme.href = `main/css/${theme}.css`;
   } else {
@@ -430,6 +467,5 @@ function setPageTheme(theme){
       'beforeend',
       `<link id="theme" rel="stylesheet" href="main/css/${theme}.css" />`);  
   }
-
   // modifying the rule in the stylesheet
 }

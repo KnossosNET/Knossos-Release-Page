@@ -1,5 +1,6 @@
+/*Also known as the Shivan theme*/
 header {
-  background-image: linear-gradient(180deg, #8423c5 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+  background-image: linear-gradient(180deg, #7d0101 0,rgba(39,3,4,.5)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
 }
 
 .body_ {
@@ -7,23 +8,23 @@ header {
 }
 
 a {
-  color: #ce93ff;
+  color: #ff9393;
 }
 
 .local-link .minor-text{
-  color: #8d1beb;
+  color: #eb9999;
 }
 
 a:hover {
-  color: #7c22bd;
+  color: #bd2c22;
 }
 
 h1, h2, h3, h4, h5, .minor-text {
-  color: #ce93ff;
+  color: #ff9393;
 }
 
 .footer-area{
-  background-image: linear-gradient(180deg, #8423c5 0,rgba(104,20,104,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+  background-image: linear-gradient(180deg, #7d0101 0,rgba(39,3,4,.5)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
 }
 
 li {
@@ -40,7 +41,7 @@ border-color: #000;
 }
 
 .nav-tabs:active .nav-item:active .nav-link:active {
-  color: #9e6ec0;
+  color: #C06E7A;
   background-color:#242424;
 }
 
@@ -60,14 +61,14 @@ border-color: #000;
 
 
 .dropdown-item {
-  color: #8423c5;
+  color: #EB4646;
 }
 
 .dropdown-item:hover {
-  color: #8423c5;
+  color: #EB4646;
   background-color: #000;
 }
 
 .svg-filter{
-  filter: invert(71%) sepia(10%) saturate(1296%) hue-rotate(358deg) brightness(91%) contrast(89%);
+  filter: invert(20%) sepia(82%) saturate(2944%) hue-rotate(351deg) brightness(82%) contrast(87%);
 }
