@@ -90,6 +90,7 @@ function initPage(arch){
   }
 
   initOsChoice(archResult);
+  toggleContents(false, "cover");
 }
 
 // Change tab appearance and download link contents

@@ -191,3 +191,8 @@ li {
 .svg-filter{
     filter: invert(21%) sepia(90%) saturate(3272%) hue-rotate(268deg) brightness(74%) contrast(99%);
 }
+
+/* Hides the wepage until it's loaded.*/
+#cover {
+    position: fixed; height: 100%; width: 100%; top:0; left: 0; background: #000; z-index:9999;
+}
