@@ -64,6 +64,12 @@ const buildMatrix = {
 
 // Run at the start of the page (called from the html) with our best guess at Architecture
 function initPage(arch){
+  const oldTheme = getCookie("theme");
+
+  if (oldTheme){
+    setPageTheme(oldTheme)
+  }
+
   populateFields(false);
 
   fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
@@ -428,35 +434,35 @@ function setPageTheme(theme){
   switch(theme){
     case "Knet":
       logo.src = "main/res/knossos-icon.ico";
-      console.log("Selected KNET icon.");
+      document.cookie = "theme=Knet"; 
       break;
     case "Classic": // FIX ME!  I NEED THE CORRECT ICON!
       logo.src = "main/res/themes/knossos-icon-original-ish.png";
-      console.log("Selected classic icon.");
+      document.cookie = "theme=Classic"; 
       break;
     case "Vishnan": 
       logo.src = "main/res/themes/knossos-icon-orange.png";
-      console.log("Selected vishnan icon.");
+      document.cookie = "theme=Vishnan"; 
       break;
 
     case "Ancients":
       logo.src = "main/res/themes/AncientKnossos.png";
-      console.log("Selected Ancient icon.");
+      document.cookie = "theme=Ancients"; 
       break;
 
     case "Nightmare":
       logo.src = "main/res/themes/NightmareKnossos.png";
-      console.log("Selected Nightmare icon.");
+      document.cookie = "theme=Nightmare"; 
       break;
 
     case "Ae":
       logo.src = "main/res/themes/knossos-icon-ae.png";
-      console.log("Selected Ae icon.");
+      document.cookie = "theme=Ae"; 
       break;
 
     default: 
       logo.src = "main/res/knossos-icon.ico";
-      console.log("Selected default icon.");
+      document.cookie = "theme=Knet"; 
       break;
   }
 
@@ -468,4 +474,21 @@ function setPageTheme(theme){
       `<link id="theme" rel="stylesheet" href="main/css/${theme}.css" />`);  
   }
   // modifying the rule in the stylesheet
+}
+
+// Borrowed from w3schools
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
