@@ -414,3 +414,10 @@ function get_info(response){
     x++;
   }
 }
+
+function setPageTheme(theme){
+  console.log(theme);
+
+
+  // modifying the rule in the stylesheet
+}
