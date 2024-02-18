@@ -457,8 +457,10 @@ function setPageTheme(theme){
       break;
 
     case "Ae":
-      logo.src = "main/res/themes/knossos-icon-ae.png";
-      document.cookie = "theme=Ae"; 
+    // Sadly, this icon was not as good
+    // logo.src = "main/res/themes/knossos-icon-ae.png";
+    logo.src = "main/res/knossos-icon.ico";
+    document.cookie = "theme=Ae"; 
       break;
 
     default: 
