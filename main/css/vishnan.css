@@ -1,0 +1,73 @@
+header {
+  background-image: linear-gradient(180deg, #EB901B 0,rgba(104,96,20,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+}
+
+.body_ {
+  background-color: #303030;
+}
+
+a {
+  color: #FFE193;
+}
+
+.local-link .minor-text{
+  color: #EB901B;
+}
+
+a:hover {
+  color: #BD7422;
+}
+
+h1, h2, h3, h4, h5, .minor-text {
+  color: #FFE193;
+}
+
+.footer-area{
+  background-image: linear-gradient(180deg, #EB901B 0,rgba(104,96,20,.3)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+}
+
+li {
+  list-style-image: "main/res/iconmonstr-download.png";
+}
+
+.nav-tabs {
+border-color: #000;
+}
+
+.nav-tabs .nav-item .nav-link {
+  background-color: #404040;
+  border-color: #000;
+}
+
+.nav-tabs:active .nav-item:active .nav-link:active {
+  color: #C0A16E;
+  background-color:#242424;
+}
+
+.DLlinks {
+  background-color: #242424;
+}
+
+.link-body {
+  background-color: #080808;
+  border-color: #000;
+}
+
+.dropdown-menu {
+
+  background-color: #252525;
+}
+
+
+.dropdown-item {
+  color: #EB901B;
+}
+
+.dropdown-item:hover {
+  color: #EB901B;
+  background-color: #000;
+}
+
+.svg-filter{
+  filter: invert(46%) sepia(82%) saturate(491%) hue-rotate(351deg) brightness(91%) contrast(84%);
+}

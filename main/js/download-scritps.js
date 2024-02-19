@@ -64,6 +64,12 @@ const buildMatrix = {
 
 // Run at the start of the page (called from the html) with our best guess at Architecture
 function initPage(arch){
+  const oldTheme = getCookie("theme");
+
+  if (oldTheme){
+    setPageTheme(oldTheme)
+  }
+
   populateFields(false);
 
   fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
@@ -84,6 +90,7 @@ function initPage(arch){
   }
 
   initOsChoice(archResult);
+  toggleContents(false, "cover");
 }
 
 // Change tab appearance and download link contents
@@ -340,7 +347,7 @@ function populateFields(populateAutoUpdate){
   }
 
 function get_info(response){
-  console.log(response);
+  //console.log(response);
 
   if (!response || !response.hasOwnProperty("assets")){
 
@@ -413,4 +420,30 @@ function get_info(response){
     }
     x++;
   }
+}
+
+function setPageTheme(theme){
+  const validThemes = [ "Knet", "Classic", "Vishnan", "Ancients", "Nightmare", "Ae" ];
+
+  if ( !validThemes.includes(theme) ) return;
+
+  document.body.setAttribute('data-theme', theme);
+  document.cookie = `theme=${theme}`;
+}
+
+// Borrowed from w3schools
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }

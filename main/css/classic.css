@@ -1,0 +1,74 @@
+/*Also known as the Shivan theme*/
+header {
+  background-image: linear-gradient(180deg, #7d0101 0,rgba(39,3,4,.5)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+}
+
+.body_ {
+  background-color: #303030;
+}
+
+a {
+  color: #ff9393;
+}
+
+.local-link .minor-text{
+  color: #eb9999;
+}
+
+a:hover {
+  color: #bd2c22;
+}
+
+h1, h2, h3, h4, h5, .minor-text {
+  color: #ff9393;
+}
+
+.footer-area{
+  background-image: linear-gradient(180deg, #7d0101 0,rgba(39,3,4,.5)),repeating-linear-gradient(180deg,#242424,#323232 1px,#000 0,#000 2px);
+}
+
+li {
+  list-style-image: "main/res/iconmonstr-download.png";
+}
+
+.nav-tabs {
+border-color: #000;
+}
+
+.nav-tabs .nav-item .nav-link {
+  background-color: #404040;
+  border-color: #000;
+}
+
+.nav-tabs:active .nav-item:active .nav-link:active {
+  color: #C06E7A;
+  background-color:#242424;
+}
+
+.DLlinks {
+  background-color: #242424;
+}
+
+.link-body {
+  background-color: #080808;
+  border-color: #000;
+}
+
+.dropdown-menu {
+
+  background-color: #252525;
+}
+
+
+.dropdown-item {
+  color: #EB4646;
+}
+
+.dropdown-item:hover {
+  color: #EB4646;
+  background-color: #000;
+}
+
+.svg-filter{
+  filter: invert(20%) sepia(82%) saturate(2944%) hue-rotate(351deg) brightness(82%) contrast(87%);
+}
