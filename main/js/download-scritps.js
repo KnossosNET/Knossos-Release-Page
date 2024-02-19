@@ -423,60 +423,12 @@ function get_info(response){
 }
 
 function setPageTheme(theme){
-  console.log(theme);
+  const validThemes = [ "Knet", "Classic", "Vishnan", "Ancients", "Nightmare", "Ae" ];
 
-  if (theme === "Knet")
-    theme = "";
+  if ( !validThemes.includes(theme) ) return;
 
-  currentTheme = document.getElementById("theme");
-
-  const logo = document.getElementById("webpageIcon");
-
-  switch(theme){
-    case "Knet":
-      logo.src = "main/res/knossos-icon.ico";
-      document.cookie = "theme=Knet"; 
-      break;
-    case "Classic": // FIX ME!  I NEED THE CORRECT ICON!
-      logo.src = "main/res/themes/knossos-icon-original-ish.png";
-      document.cookie = "theme=Classic"; 
-      break;
-    case "Vishnan": 
-      logo.src = "main/res/themes/knossos-icon-orange.png";
-      document.cookie = "theme=Vishnan"; 
-      break;
-
-    case "Ancients":
-      logo.src = "main/res/themes/AncientKnossos.png";
-      document.cookie = "theme=Ancients"; 
-      break;
-
-    case "Nightmare":
-      logo.src = "main/res/themes/NightmareKnossos.png";
-      document.cookie = "theme=Nightmare"; 
-      break;
-
-    case "Ae":
-    // Sadly, this icon was not as good
-    // logo.src = "main/res/themes/knossos-icon-ae.png";
-    logo.src = "main/res/knossos-icon.ico";
-    document.cookie = "theme=Ae"; 
-      break;
-
-    default: 
-      logo.src = "main/res/knossos-icon.ico";
-      document.cookie = "theme=Knet"; 
-      break;
-  }
-
-  if (currentTheme){
-    currentTheme.href = `main/css/${theme}.css`;
-  } else {
-    document.getElementsByTagName('head')[0].insertAdjacentHTML(
-      'beforeend',
-      `<link id="theme" rel="stylesheet" href="main/css/${theme}.css" />`);  
-  }
-  // modifying the rule in the stylesheet
+  document.body.setAttribute('data-theme', theme);
+  document.cookie = `theme=${theme}`;
 }
 
 // Borrowed from w3schools

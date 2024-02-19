@@ -14,7 +14,7 @@
     <title>Knossos.NET Downloads</title>
   </head>
 
-  <body class="body_">
+  <body class="body_" data-theme="Knet">
     <div id="cover"></div>
     <header>
       <div class="container header-container">
@@ -25,7 +25,7 @@
               alt="Knossos.NET"
               width="96"
               height="96"
-              src="main/res/knossos-icon.ico"
+              src="main/res/knossos-icon.png"
             />
           </div>
           <div class="col-7">
@@ -45,13 +45,7 @@
               <!-- Scripting used when this link is clicked -->
               <a id="downTab" class="nav-link local-link" aria-current="page" onclick="activateDownload()">
                 Auto-Detected          
-                <img
-                  class="svg-filter" 
-                  alt="Detected"
-                  src="main/res/iconmonstr-svg-radar.svg"
-                  width="16"
-                  height="16"
-                />
+                <svg class="icon icon-16" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-radar"></use></svg>
               </a>
             </li>
             <li id="windowTab" class="nav-item">
@@ -59,39 +53,21 @@
               <a id="winTab" class="nav-link local-link" aria-current="page" onclick="activateWindows()">
                 
                 Windows
-                <img
-                  class="svg-filter" 
-                  alt="Windows Downloads"
-                  src="main/res/iconmonstr-svg-win.svg"
-                  width="16"
-                  height="16"
-                />
+                <svg class="icon icon-16" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-win"></use></svg>
               </a>
             </li>
             <li class="nav-item">
               <!-- Scripting used when this link is clicked -->
               <a id="macTab" class="nav-link local-link" aria-current="page" onclick="activateMac()">
                 macOS
-                <img 
-                  class="svg-filter"
-                  alt="macOS Downloads"
-                  src="main/res/iconmonstr-svg-apple.svg"
-                  width="16"
-                  height="16"
-                />
+                <svg class="icon icon-16" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-apple"></use></svg>
               </a>
             </li>
             <li class="nav-item"> 
               <!-- Scripting used when this link is clicked -->
               <a id="linTab" class="nav-link local-link" aria-current="page" onclick="activateLinux()">
                 Linux
-                <img 
-                  class="svg-filter"
-                  alt="Linux Downloads"
-                  src="main/res/iconmonstr-svg-linux.svg"
-                  width="16"
-                  height="16"
-                />
+                <svg class="icon icon-16" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-linux"></use></svg>
               </a>
             </li>
           </ul>
@@ -107,7 +83,7 @@
               <ul style="list-style-type:none;">
                 <li>
                   <a id="theButton" class="local-link" href="">
-                    <h4><b><br><img class="svg-filter" length="15" width="15" src="main/res/iconmonstr-svg-save.svg"/> 
+                    <h4><b><br><svg class="icon icon-16" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg> 
                     <span id="theButtonText"></span>
                     </b></h4>
                   </a>
@@ -139,7 +115,7 @@
                 <li>
                   <h5>
                     <a id="winx64-installer-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x64.exe">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="winx64-installer-version"></span> x64
                     </a>
                     <span class="minor-text">
@@ -150,7 +126,7 @@
                 <li>
                   <h5>
                     <a id="winarm-installer-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-arm64.exe">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="winarm-installer-version"></span> ARM
                     </a>
                     <span class="minor-text">
@@ -161,7 +137,7 @@
                 <li>
                   <h5>
                     <a id="winx86-installer-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0-x86.exe">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="winx86-installer-version"></span> x86
                     </a>
                     <span class="minor-text">
@@ -178,7 +154,7 @@
                 <li>
                   <h5>
                     <a id="winx64-pack-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Windows_x64.zip">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="winx64-pack-version"></span> x64 
                     </a>
                     <span class="minor-text">
@@ -189,7 +165,7 @@
                 <li>
                   <h5>
                     <a id="winarm-pack-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Windows_arm64.zip">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="winarm-pack-version"></span> ARM
                     </a>
                     <span class="minor-text">
@@ -200,7 +176,7 @@
                 <li>
                   <h5>
                     <a id="winx86-pack-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Windows_x86.zip">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="winx86-pack-version"></span> x86
                     </a>
                     <span class="minor-text">
@@ -226,7 +202,7 @@
                 <li>
                   <h5>
                     <a id="macuni-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-1.0.0.dmg">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="macuni-version"></span> DMG
                     </a>
                     <span class="minor-text">
@@ -243,7 +219,7 @@
                 <li>
                   <h5>
                     <a id="macapplesilicon-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/MacOS_arm64.tar.gz">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="macapplesilicon-version"></span> Apple Silicon 
                     </a>
                     <span class="minor-text">
@@ -254,7 +230,7 @@
                 <li>
                   <h5>
                     <a id="macintel-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/MacOS_x64.tar.gz">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="macintel-version"></span> Intel
                     </a>
                     <span class="minor-text">
@@ -285,7 +261,7 @@
                 <li>
                   <h5>
                     <a id="linuxx64-appimage-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-x86_64.AppImage">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="linuxx64-appimage-version"></span> x64 
                     </a>
                   </h5>
@@ -293,7 +269,7 @@
                 <li>
                   <h5>
                     <a id="linuxarm-appimage-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Knossos.NET-aarch64.AppImage">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="linuxarm-appimage-version"></span> ARM
                     </a>
                     <span class="minor-text">                      
@@ -312,7 +288,7 @@
                 <li>
                   <h5>
                     <a  id="linuxx64-binaries-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Linux_x64.tar.gz">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="linuxx64-binaries-version"></span> x64 
                     </a>
                   </h5>                 
@@ -320,7 +296,7 @@
                 <li>
                   <h5>
                     <a id="linuxarm-binaries-link" class="local-link" href="https://github.com/KnossosNET/Knossos.NET/releases/download/v1.0.0/Linux_arm64.tar.gz">
-                      <img class="svg-filter" length="10" width="10" src="main/res/iconmonstr-svg-save.svg"/>
+                      <svg class="icon icon-10" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-save"></use></svg>
                       <span id="linuxarm-binaries-version"></span> ARM
                     </a>
                   </h5>                 
@@ -367,12 +343,7 @@
         <div style="padding-bottom: 5px;" class="col-1">
           <div div class="dropdown">
             <button class="btn btn-sm" type="button"  data-toggle="dropdown">
-              <img
-                class="svg-filter" 
-                src="main/res/iconmonstr-svg-gear.svg"
-                width="20"
-                height="20"
-              />
+              <svg class="icon icon-20" aria-hidden="true"><use xlink:href="main/res/icons.svg#icon-gear"></use></svg>
             </button>
             
             <ul class="dropdown-menu">
