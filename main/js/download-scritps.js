@@ -279,7 +279,7 @@ function activateTheButton(){
 
     } else if (arch === 64) {
       newContents += `${buildMatrix.linux.x64Installer.version} Linux x86_64 AppImage`;
-      anchorElement.href = buildMatrix.linux.x64.url;
+      anchorElement.href = buildMatrix.linux.x64Installer.url;
 
     // Bogus Linux Arch
     } else {
