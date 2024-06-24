@@ -1,7 +1,6 @@
 /* theme "Knet" */
 :root {
     --clr-main: #8423c5;
-    --clr-bg: #303030;
     --clr-grad2: rgba(104,20,104,.3);
     --clr-icon: var(--clr-main);
     --clr-menu-text: var(--clr-main); 
@@ -14,7 +13,6 @@
 
 body[data-theme="Classic"] {
     --clr-main: #7d0101;
-    --clr-bg: #303030;
     --clr-grad2: rgba(39,3,4,.5);
     --clr-icon: #bd2c22;
     --clr-menu-text: #bd2c22;
@@ -27,7 +25,6 @@ body[data-theme="Classic"] {
 
 body[data-theme="Vishnan"] {
     --clr-main: #EB901B;
-    --clr-bg: #303030;
     --clr-grad2: rgba(104,96,20,.3);
     --clr-icon: var(--clr-main);
     --clr-menu-text: var(--clr-main);
@@ -40,7 +37,6 @@ body[data-theme="Vishnan"] {
 
 body[data-theme="Ancients"] {
     --clr-main: #1B46EB;
-    --clr-bg: #303030;
     --clr-grad2: rgba(20,20,104,.3);
     --clr-icon: var(--clr-main);
     --clr-menu-text: #6E7AC0;
@@ -53,7 +49,6 @@ body[data-theme="Ancients"] {
 
 body[data-theme="Nightmare"] {
     --clr-main: #1BEB24;
-    --clr-bg: #000;
     --clr-grad2: rgba(20,104,20,.3);
     --clr-icon: var(--clr-main);
     --clr-menu-text: var(--clr-main);
@@ -66,7 +61,6 @@ body[data-theme="Nightmare"] {
 
 body[data-theme="Ae"] {
     --clr-main: #B3B3B3;
-    --clr-bg: #303030;
     --clr-grad2: rgba(104,20,104,.3);
     --clr-icon: #8423c5;
     --clr-menu-text: var(--clr-main);
@@ -122,7 +116,7 @@ body {
 .body_ {
     margin-right: 0px;
     padding-right: 0px;
-    background-color: var(--clr-bg);
+    background: linear-gradient(180deg, rgba(32,32,32,1) 0%, rgba(21,21,21,1) 20%, rgba(37,37,37,1) 60%, rgba(45,45,45,1) 100%);    
 }
 
 a {
