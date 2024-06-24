@@ -229,6 +229,15 @@ li {
     padding: 0px;
 } 
 
+.blurb-body {
+    background-color: #080808;
+    border-color: #000;
+    border-width: 3px;
+    border-radius: 30;
+    margin-left: 15px;
+    padding-right: 30px;
+}
+
 .link-body {
     background-color: #080808;
     margin: 0px;
@@ -238,6 +247,18 @@ li {
     border-color: #000;
     border-width: 3px;
     border-radius: 30;
+}
+
+a:not([href]):not([class]):hover{
+    color: var(--clr-500);
+}
+
+.btn {
+    color: var(--clr-500);
+}
+
+.btn:hover {
+    color: var(--clr-500);
 }
 
 .link-container {
