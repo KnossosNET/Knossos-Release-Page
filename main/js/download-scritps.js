@@ -1,4 +1,4 @@
-const fallbackVersion = "1.0.0"
+const fallbackVersion = "1.2.0"
 
 const buildMatrix = {
   windows: {
