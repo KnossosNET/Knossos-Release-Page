@@ -1,4 +1,5 @@
 const fallbackVersion = "1.2.0"
+let checksumUrl = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.2.0/checksums.txt";
 
 const buildMatrix = {
   windows: {
@@ -344,6 +345,11 @@ function populateFields(populateAutoUpdate){
   document.getElementById("linuxarm-binaries-link").href = buildMatrix.linux.arm64.url;
   document.getElementById("linuxx64-binaries-link").href = buildMatrix.linux.x64.url;
 
+  document.getElementById("checksum-link-windows").href = checksumUrl;
+  document.getElementById("checksum-link-mac").href = checksumUrl;
+  document.getElementById("checksum-link-linux").href = checksumUrl;
+
+
     if (populateAutoUpdate){
       activateTheButton();
     }
@@ -421,6 +427,8 @@ function get_info(response){
     } else if (response.assets[x].name==="Windows_x86.zip"){
       buildMatrix.windows.x86.version = newVersion;
       buildMatrix.windows.x86.url = response.assets[x].browser_download_url;      
+    } else if (response.assets[x].name==="checksums.txt"){
+      checksumUrl = response.assets[x].browser_download_url;
     }
     x++;
   }
