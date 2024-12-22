@@ -63,7 +63,7 @@ const buildMatrix = {
 
 
 // Run at the start of the page (called from the html) with our best guess at Architecture
-function initPage(arch){
+async function initPage(arch){
   const oldTheme = getCookie("theme");
 
   if (oldTheme){
@@ -72,9 +72,12 @@ function initPage(arch){
 
   populateFields(false);
 
-  fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
+  await fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
     .then((response) => response.json())
-    .then(responseJSON => { get_info(responseJSON); populateFields(true); })
+    .then(responseJSON => { 
+      get_info(responseJSON); 
+      populateFields(true); 
+    })
     .catch (error => console.log(`Fetching the most recent build from the github api failed. The error encountered was: ${error}`));
   
   // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
