@@ -378,6 +378,7 @@ function get_info(response){
 
   while (x < response.assets.length){
     if (!response.assets[x].hasOwnProperty("name") || !response.assets[x].hasOwnProperty("browser_download_url")){
+      x++;
       continue;
     }
 
