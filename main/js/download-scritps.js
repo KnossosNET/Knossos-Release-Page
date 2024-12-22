@@ -64,7 +64,7 @@ const buildMatrix = {
 
 
 // Run at the start of the page (called from the html) with our best guess at Architecture
-async function initPage(arch){
+function initPage(arch){
   const oldTheme = getCookie("theme");
 
   if (oldTheme){
@@ -73,28 +73,33 @@ async function initPage(arch){
 
   populateFields(false);
 
-  await fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
-    .then((response) => response.json())
-    .then(responseJSON => { 
-      get_info(responseJSON); 
-      populateFields(true); 
-    })
-    .catch (error => console.log(`Fetching the most recent build from the github api failed. The error encountered was: ${error}`));
-  
-  // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
-  const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
-  const arch32List = ["ia32", "x86", "amd32"];
+  fetch("https://api.github.com/repos/KnossosNET/Knossos.NET/releases/latest")
+  .then((response) => response.json())
+  .then(responseJSON => { 
+    // still looking for a good ARM list.  Hopefully defaulting to ARM and detecting the other two is enough.
+    const arch64List = ["EM64T", "x86-64", "Intel 64", "amd64"];
+    const arch32List = ["ia32", "x86", "amd32"];
 
-  let archResult = 0;
+    let archResult = 0;
 
-  if (arch64List.includes(arch)) {
-    archResult = 64;
-  } else if (arch32List.includes(arch)){
-    archResult = 32;
-  }
+    if (arch64List.includes(arch)) {
+      archResult = 64;
+    } else if (arch32List.includes(arch)){
+      archResult = 32;
+    }
 
-  initOsChoice(archResult);
-  toggleContents(false, "cover");
+    initOsChoice(archResult);
+    
+    get_info(responseJSON); 
+    populateFields(true); 
+
+    toggleContents(false, "cover");
+  })
+  .catch (error => {
+    console.log(`Fetching the most recent build from the github api failed. The error encountered was: ${error}`)
+    toggleContents(false, "cover");
+    
+  });  
 }
 
 // Change tab appearance and download link contents
