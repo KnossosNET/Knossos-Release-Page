@@ -353,12 +353,12 @@ function populateFields(populateAutoUpdate){
   document.getElementById("checksum-link-windows").href = checksumUrl;
   document.getElementById("checksum-link-mac").href = checksumUrl;
   document.getElementById("checksum-link-linux").href = checksumUrl;
+  document.getElementById("checksum-link-autodetect").href = checksumUrl;
 
-
-    if (populateAutoUpdate){
-      activateTheButton();
-    }
+  if (populateAutoUpdate){
+    activateTheButton();
   }
+}
 
 function get_info(response){
   //console.log(response);
