@@ -1,5 +1,5 @@
-const fallbackVersion = "1.2.0"
-let checksumUrl = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.2.0/checksums.txt";
+const fallbackVersion = "1.3.7"
+let checksumUrl = "https://github.com/KnossosNET/Knossos.NET/releases/download/v1.3.7/checksums.txt";
 
 const buildMatrix = {
   windows: {
